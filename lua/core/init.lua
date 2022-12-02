@@ -1,3 +1,11 @@
+local g = vim.g
+
+-- Skip some remote provider loading
+g.loaded_python3_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
+
 -- Disable vim builtins for faster startup time
 local built_ins = {
   'gzip',
@@ -21,7 +29,7 @@ local built_ins = {
 }
 
 for _, plugin in pairs(built_ins) do
-  vim.g['loaded_' .. plugin] = 1
+  g['loaded_' .. plugin] = 1
 end
 
 -- Load core modules
