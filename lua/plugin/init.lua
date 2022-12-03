@@ -6,6 +6,17 @@ if not success then
   return
 end
 
+-- Popup Window
+packer.init {
+  display = {
+    open_fn = function()
+      return require('packer.util').float {
+        border = 'rounded',
+      }
+    end,
+  },
+}
+
 -- User Plugins
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
