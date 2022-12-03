@@ -23,6 +23,17 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Syntax Highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      require('nvim-treesitter.install').update()
+    end,
+    config = function()
+      require 'plugins.config.treesitter'
+    end,
+  }
+
   if g.packer_bootstrap then
     packer.sync()
   end
