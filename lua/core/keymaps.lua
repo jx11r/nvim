@@ -1,11 +1,11 @@
 local keymap = vim.keymap
 
--- Reload
+-- Reload init.lua
 keymap.set('n', '<Space>r', ':source $MYVIMRC<cr>')
 
--- Save & Quit
+-- Write / Quit
 keymap.set('n', '<Space>w', ':w<cr>')
-keymap.set('n', '<Space>q', ':q!')
+keymap.set('n', '<Space>q', ':q<cr>')
 
 -- Select All
 keymap.set('n', '<C-a>', 'gg<S-v>G')
