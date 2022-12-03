@@ -12,6 +12,17 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   -- use 'dstein64/vim-startuptime'
 
+  -- Color Scheme
+  use {
+    'catppuccin/nvim',
+    as = 'catppuccin',
+    config = function ()
+      if pcall(require, 'catppuccin') then
+        vim.cmd [[colorscheme catppuccin]]
+      end
+    end,
+  }
+
   if g.packer_bootstrap then
     packer.sync()
   end
