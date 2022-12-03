@@ -16,9 +16,9 @@ return packer.startup(function(use)
   use {
     'catppuccin/nvim',
     as = 'catppuccin',
-    config = function ()
+    config = function()
       if pcall(require, 'catppuccin') then
-        vim.cmd [[colorscheme catppuccin]]
+        vim.cmd [[ colorscheme catppuccin ]]
       end
     end,
   }

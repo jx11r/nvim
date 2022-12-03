@@ -33,6 +33,6 @@ for _, plugin in pairs(built_ins) do
 end
 
 -- Load core modules
-require('core.options')
-require('core.keymaps')
-require('core.packer')
+require 'core.options'
+require 'core.keymaps'
+require 'core.packer'

@@ -1,5 +1,5 @@
 local fn = vim.fn
-local path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 -- Automatically install packer
 if fn.empty(fn.glob(path)) > 0 then
@@ -11,6 +11,6 @@ if fn.empty(fn.glob(path)) > 0 then
     'https://github.com/wbthomason/packer.nvim',
     path,
   }
-  vim.cmd([[packadd packer.nvim]])
+  vim.cmd [[ packadd packer.nvim ]]
   vim.g.packer_bootstrap = true
 end

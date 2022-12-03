@@ -1,6 +1,6 @@
 if pcall(require, 'impatient') then
-  require('impatient')
+  require 'impatient'
 end
 
-require('core')
-require('plugins')
+require 'core'
+require 'plugins'
