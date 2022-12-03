@@ -11,7 +11,23 @@ treesitter.setup {
   },
 
   ensure_installed = {
+    'bash',
     'c',
+    'cmake',
+    'cpp',
+    'css',
+    'diff',
+    'gitignore',
+    'go',
+    'html',
+    'javascript',
+    'json',
     'lua',
+    'make',
+    'markdown',
+    'python',
+    'rust',
+    'toml',
+    'yaml',
   },
 }
