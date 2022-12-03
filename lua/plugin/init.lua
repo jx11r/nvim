@@ -23,7 +23,7 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   -- use 'dstein64/vim-startuptime'
 
-  -- Color Scheme
+  -- Colorscheme
   use {
     'catppuccin/nvim',
     as = 'catppuccin',
@@ -32,6 +32,21 @@ return packer.startup(function(use)
         vim.cmd [[ colorscheme catppuccin ]]
       end
     end,
+  }
+
+  -- Status Line
+  use {
+    'nvim-lualine/lualine.nvim',
+    after = 'catppuccin',
+    config = function()
+      require 'plugin.lualine'
+    end,
+  }
+
+  -- Icons
+  use {
+    'nvim-tree/nvim-web-devicons',
+    after = 'lualine.nvim',
   }
 
   -- Syntax Highlighting
