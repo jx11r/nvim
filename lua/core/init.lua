@@ -1,6 +1,6 @@
 local g = vim.g
 
--- Skip some remote provider loading
+-- Disable optional providers
 g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
