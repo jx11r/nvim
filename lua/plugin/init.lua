@@ -30,7 +30,7 @@ return packer.startup(function(use)
       require('nvim-treesitter.install').update()
     end,
     config = function()
-      require 'plugins.config.treesitter'
+      require 'plugin.treesitter'
     end,
   }
 

@@ -3,4 +3,4 @@ if pcall(require, 'impatient') then
 end
 
 require 'core'
-require 'plugins'
+require 'plugin'
