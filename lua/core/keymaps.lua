@@ -10,5 +10,8 @@ keymap.set('n', '<Space>q', ':q<cr>')
 -- Select All
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
+-- Color Highlighter
+keymap.set('n', '<C-c>', ':ColorizerToggle<cr>')
+
 -- File Explorer
 keymap.set('n', '<Space>e', ':NvimTreeFocus<cr>')

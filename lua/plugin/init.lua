@@ -58,10 +58,18 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    'NvChad/nvim-colorizer.lua',
+    cmd = 'ColorizerToggle',
+    config = function()
+      require('colorizer').setup()
+    end,
+  }
+
   -- File Explorer
   use {
     'nvim-tree/nvim-tree.lua',
-    cmd = { 'NvimTreeFocus' },
+    cmd = 'NvimTreeFocus',
     config = function()
       require 'plugin.tree'
     end,
