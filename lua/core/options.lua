@@ -26,7 +26,7 @@ opt.relativenumber = false
 opt.ruler = false
 opt.showmode = false
 opt.showcmd = true
-opt.signcolumn = 'number'
+opt.signcolumn = 'yes:1'
 opt.termguicolors = true
 
 -- Mouse Support
