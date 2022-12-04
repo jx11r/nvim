@@ -93,6 +93,33 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Completion
+  use {
+    'rafamadriz/friendly-snippets',
+    module = 'cmp',
+    event = 'InsertEnter',
+  }
+
+  use {
+    'hrsh7th/nvim-cmp',
+    after = 'friendly-snippets',
+    config = function()
+      require 'plugin.cmp'
+    end,
+  }
+
+  use {
+    'L3MON4D3/LuaSnip',
+    after = 'nvim-cmp',
+    config = function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end,
+  }
+
+  use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
+  use { 'hrsh7th/cmp-buffer', after = 'cmp_luasnip' }
+  use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
+
   -- Editing Support
   use {
     'numToStr/Comment.nvim',
