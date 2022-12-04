@@ -18,6 +18,7 @@ opt.writebackup = false
 
 -- User Interface
 opt.cursorline = false
+opt.fillchars:append { eob = ' ' }
 opt.hidden = true
 opt.number = true
 opt.numberwidth = 4
