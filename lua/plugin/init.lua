@@ -83,6 +83,39 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Editing Support
+  use {
+    'numToStr/Comment.nvim',
+    keys = { 'gc', 'gb' },
+    config = function()
+      require('Comment').setup()
+    end,
+  }
+
+  use {
+    'phaazon/hop.nvim',
+    cmd = 'HopWord',
+    config = function()
+      require('hop').setup()
+    end,
+  }
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
+  }
+
+  use {
+    'yamatsum/nvim-cursorline',
+    config = function()
+      require('nvim-cursorline').setup {
+        cursorword = { enable = false },
+      }
+    end,
+  }
+
   if g.packer_bootstrap then
     packer.sync()
   end
