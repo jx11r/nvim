@@ -32,8 +32,8 @@ opt.termguicolors = true
 -- Mouse Support
 opt.mouse = 'a'
 opt.mousescroll = 'ver:3,hor:6'
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 10
+opt.sidescrolloff = 10
 
 -- Indentation
 opt.autoindent = true
