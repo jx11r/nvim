@@ -9,3 +9,6 @@ keymap.set('n', '<Space>q', ':q<cr>')
 
 -- Select All
 keymap.set('n', '<C-a>', 'gg<S-v>G')
+
+-- File Explorer
+keymap.set('n', '<Space>e', ':NvimTreeFocus<cr>')

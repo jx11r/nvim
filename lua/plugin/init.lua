@@ -28,9 +28,7 @@ return packer.startup(function(use)
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
-      if pcall(require, 'catppuccin') then
-        vim.cmd [[ colorscheme catppuccin ]]
-      end
+      require 'plugin.catppuccin'
     end,
   }
 
@@ -57,6 +55,15 @@ return packer.startup(function(use)
     end,
     config = function()
       require 'plugin.treesitter'
+    end,
+  }
+
+  -- File Explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    cmd = { 'NvimTreeFocus' },
+    config = function()
+      require 'plugin.tree'
     end,
   }
 
