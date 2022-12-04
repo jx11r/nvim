@@ -10,6 +10,11 @@ keymap.set('n', '<Space>q', ':q<cr>')
 -- Select All
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
+-- Packer Stuff
+keymap.set('n', '<Space>pc', ':PackerCompile<cr>')
+keymap.set('n', '<Space>pi', ':PackerInstall<cr>')
+keymap.set('n', '<Space>ps', ':PackerSync<cr>')
+
 -- Color Highlighter
 keymap.set('n', '<C-c>', ':ColorizerToggle<cr>')
 
