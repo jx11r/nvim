@@ -9,6 +9,7 @@ catppuccin.setup {
 
   integrations = {
     nvimtree = true,
+    telescope = true,
   },
 }
 

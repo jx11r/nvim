@@ -21,5 +21,8 @@ keymap.set('n', '<C-c>', ':ColorizerToggle<cr>')
 -- File Explorer
 keymap.set('n', '<Space>e', ':NvimTreeFocus<cr>')
 
+-- Fuzzy Finder
+keymap.set('n', '<Space>t', ':Telescope find_files<cr>')
+
 -- Go to any word in the current buffer
 keymap.set('n', '<Space>f', ':HopWord<cr>')
