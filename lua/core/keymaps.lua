@@ -22,7 +22,7 @@ keymap.set('n', '<C-c>', ':ColorizerToggle<cr>')
 keymap.set('n', '<Space>e', ':NvimTreeFocus<cr>')
 
 -- Fuzzy Finder
-keymap.set('n', '<Space>t', ':Telescope find_files<cr>')
+keymap.set('n', '<Space>f', ':Telescope find_files<cr>')
 
 -- Go to any word in the current buffer
-keymap.set('n', '<Space>f', ':HopWord<cr>')
+keymap.set('n', '<Space>s', ':HopWord<cr>')
