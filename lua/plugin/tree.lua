@@ -3,7 +3,6 @@ require('nvim-tree').setup {
   hijack_cursor = true,
   sort_by = 'name',
   sync_root_with_cwd = true,
-  update_focused_file = { enable = true },
   filesystem_watchers = { enable = true },
 
   git = {
