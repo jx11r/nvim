@@ -17,7 +17,7 @@ opt.undofile = true
 opt.writebackup = false
 
 -- User Interface
-opt.cursorline = false
+opt.cursorline = true
 opt.fillchars:append { eob = ' ' }
 opt.hidden = true
 opt.number = true

@@ -145,15 +145,6 @@ return packer.startup(function(use)
     end,
   }
 
-  use {
-    'yamatsum/nvim-cursorline',
-    config = function()
-      require('nvim-cursorline').setup {
-        cursorword = { enable = false },
-      }
-    end,
-  }
-
   if g.packer_bootstrap then
     packer.sync()
   end
