@@ -27,18 +27,14 @@ return packer.startup(function(use)
   use {
     'catppuccin/nvim',
     as = 'catppuccin',
-    config = function()
-      require 'config.catppuccin'
-    end,
+    config = [[ require 'config.catppuccin' ]],
   }
 
   -- Status Line
   use {
     'nvim-lualine/lualine.nvim',
     after = 'catppuccin',
-    config = function()
-      require 'config.lualine'
-    end,
+    config = [[ require 'config.lualine' ]],
   }
 
   -- Icons
@@ -53,9 +49,7 @@ return packer.startup(function(use)
     run = function()
       require('nvim-treesitter.install').update()
     end,
-    config = function()
-      require 'config.treesitter'
-    end,
+    config = [[ require 'config.treesitter' ]],
   }
 
   use {
@@ -70,9 +64,7 @@ return packer.startup(function(use)
   use {
     'nvim-tree/nvim-tree.lua',
     cmd = 'NvimTreeFocus',
-    config = function()
-      require 'config.tree'
-    end,
+    config = [[ require 'config.tree' ]],
   }
 
   -- Fuzzy Finder
@@ -103,9 +95,12 @@ return packer.startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     after = 'friendly-snippets',
-    config = function()
-      require 'config.cmp'
-    end,
+    requires = {
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+    },
+    config = [[ require 'config.cmp' ]],
   }
 
   use {
@@ -115,10 +110,6 @@ return packer.startup(function(use)
       require('luasnip.loaders.from_vscode').lazy_load()
     end,
   }
-
-  use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
-  use { 'hrsh7th/cmp-buffer', after = 'cmp_luasnip' }
-  use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
 
   -- Editing Support
   use {
