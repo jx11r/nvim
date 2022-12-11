@@ -28,7 +28,7 @@ return packer.startup(function(use)
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
-      require 'plugin.catppuccin'
+      require 'config.catppuccin'
     end,
   }
 
@@ -37,7 +37,7 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     after = 'catppuccin',
     config = function()
-      require 'plugin.lualine'
+      require 'config.lualine'
     end,
   }
 
@@ -54,7 +54,7 @@ return packer.startup(function(use)
       require('nvim-treesitter.install').update()
     end,
     config = function()
-      require 'plugin.treesitter'
+      require 'config.treesitter'
     end,
   }
 
@@ -71,7 +71,7 @@ return packer.startup(function(use)
     'nvim-tree/nvim-tree.lua',
     cmd = 'NvimTreeFocus',
     config = function()
-      require 'plugin.tree'
+      require 'config.tree'
     end,
   }
 
@@ -104,7 +104,7 @@ return packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     after = 'friendly-snippets',
     config = function()
-      require 'plugin.cmp'
+      require 'config.cmp'
     end,
   }
 

@@ -46,4 +46,4 @@ g.loaded_ruby_provider = 0
 -- Load modules
 require 'options'
 require 'keymaps'
-require 'plugin'
+require 'plugins'
