@@ -18,6 +18,11 @@ map('n', '<Space>ps', ':PackerSync<cr>')
 -- Color Highlighter
 map('n', '<C-c>', ':ColorizerToggle<cr>')
 
+-- Tab Line
+map('n', '<Tab>', ':BufferLineCycleNext<cr>')
+map('n', '<C-Tab>', ':BufferLineCyclePrev<cr>')
+map('n', '<C-w>', ':bdelete!<cr>')
+
 -- File Explorer
 map('n', '<Space>e', ':NvimTreeFocus<cr>')
 
