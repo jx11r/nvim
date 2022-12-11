@@ -122,6 +122,14 @@ return packer.startup(function(use)
 
   -- Editing Support
   use {
+    'lukas-reineke/indent-blankline.nvim',
+    after = 'nvim-treesitter',
+    config = function()
+      require('indent_blankline').setup { char = '┆' }
+    end,
+  }
+
+  use {
     'numToStr/Comment.nvim',
     keys = { 'gc', 'gb' },
     config = function()
