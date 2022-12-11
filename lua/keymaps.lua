@@ -23,7 +23,7 @@ map('n', '<Space>e', ':NvimTreeFocus<cr>')
 
 -- Fuzzy Finder
 map('n', '<Space>f', ':Telescope find_files<cr>')
-map('n', '<Space>f', ':Telescope live_grep<cr>')
+map('n', '<Space>g', ':Telescope live_grep<cr>')
 
 -- Go to any word in the current buffer
 map('n', '<Space>s', ':HopWord<cr>')
