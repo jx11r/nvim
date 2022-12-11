@@ -41,6 +41,7 @@ return packer.startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     after = 'catppuccin',
+    event = 'BufRead',
     config = [[ require 'config.bufferline' ]],
   }
 
@@ -87,6 +88,7 @@ return packer.startup(function(use)
   -- Git Integration
   use {
     'lewis6991/gitsigns.nvim',
+    event = 'BufRead',
     config = function()
       require('gitsigns').setup()
     end,
@@ -95,8 +97,8 @@ return packer.startup(function(use)
   -- Completion
   use {
     'rafamadriz/friendly-snippets',
-    module = 'cmp',
     event = 'InsertEnter',
+    module = 'cmp',
   }
 
   use {
@@ -122,6 +124,7 @@ return packer.startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('indent_blankline').setup { char = '┆' }
     end,
