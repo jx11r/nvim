@@ -20,6 +20,7 @@ treesitter.setup {
     'gitignore',
     'go',
     'html',
+    'java',
     'javascript',
     'json',
     'lua',
