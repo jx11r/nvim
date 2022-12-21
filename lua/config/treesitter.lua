@@ -17,7 +17,7 @@ treesitter.setup {
     'cpp',
     'css',
     'diff',
-    'gitignore',
+    -- 'gitignore',
     'go',
     'html',
     'java',
