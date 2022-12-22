@@ -60,6 +60,7 @@ return packer.startup(function(use)
     config = [[ require 'config.treesitter' ]],
   }
 
+  -- Color Highlighter
   use {
     'NvChad/nvim-colorizer.lua',
     cmd = 'ColorizerToggle',
