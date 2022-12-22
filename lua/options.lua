@@ -40,6 +40,6 @@ opt.autoindent = true
 opt.expandtab = true
 opt.linebreak = true
 opt.shiftwidth = 2
-opt.smartindent = false
+opt.smartindent = true
 opt.tabstop = 2
 opt.wrap = true
