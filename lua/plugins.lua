@@ -63,7 +63,7 @@ return packer.startup(function(use)
   -- Color Highlighter
   use {
     'NvChad/nvim-colorizer.lua',
-    cmd = 'ColorizerToggle',
+    -- cmd = 'ColorizerToggle',
     config = function()
       require('colorizer').setup()
     end,
