@@ -9,8 +9,12 @@ catppuccin.setup {
   transparent_background = true,
 
   integrations = {
+    cmp = true,
+    gitsigns = true,
+    hop = true,
     nvimtree = true,
     telescope = true,
+    treesitter = true,
   },
 }
 
