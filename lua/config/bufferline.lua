@@ -9,13 +9,20 @@ require('bufferline').setup {
     separator_style = 'thin',
     show_buffer_close_icons = true,
     show_close_icon = false,
+    offsets = {
+      {
+        filetype = 'NvimTree',
+        text_align = 'left',
+        separator = true,
+      },
+    },
   },
 
   highlights = require('catppuccin.groups.integrations.bufferline').get {
     custom = {
-      mocha = {
+      --[[ mocha = {
         fill = { bg = '#181825' },
-      },
+      }, ]]
     },
   },
 }

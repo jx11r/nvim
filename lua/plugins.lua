@@ -8,6 +8,7 @@ end
 
 -- Popup Window
 packer.init {
+  auto_reload_compiled = true,
   display = {
     open_fn = function()
       return require('packer.util').float {
@@ -72,7 +73,7 @@ return packer.startup(function(use)
   -- File Explorer
   use {
     'nvim-tree/nvim-tree.lua',
-    cmd = 'NvimTreeFocus',
+    cmd = { 'NvimTreeFocus', 'NvimTreeToggle' },
     config = [[ require 'config.tree' ]],
   }
 

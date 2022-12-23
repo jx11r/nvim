@@ -6,6 +6,7 @@ end
 
 catppuccin.setup {
   flavour = 'mocha',
+  transparent_background = true,
 
   integrations = {
     nvimtree = true,

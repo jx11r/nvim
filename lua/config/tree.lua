@@ -10,11 +10,18 @@ require('nvim-tree').setup {
     ignore = false,
   },
 
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
+
   view = {
     hide_root_folder = true,
-    signcolumn = 'no',
+    signcolumn = 'yes',
+    width = math.floor(vim.o.columns / 5),
     float = {
-      enable = true,
+      enable = false,
       quit_on_focus_loss = true,
       open_win_config = function()
         local columns = vim.o.columns
@@ -39,7 +46,7 @@ require('nvim-tree').setup {
     indent_width = 1,
     icons = {
       show = {
-        folder = false,
+        folder = true,
       },
     },
   },

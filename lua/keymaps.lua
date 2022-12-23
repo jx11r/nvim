@@ -24,7 +24,7 @@ map('n', '<C-Tab>', ':BufferLineCyclePrev<cr>')
 map('n', '<C-w>', ':bdelete!<cr>')
 
 -- File Explorer
-map('n', '<Space>e', ':NvimTreeFocus<cr>')
+map('n', '<Space>e', ':NvimTreeToggle<cr>')
 
 -- Fuzzy Finder
 map('n', '<Space>f', ':Telescope find_files<cr>')
