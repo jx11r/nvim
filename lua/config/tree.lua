@@ -48,6 +48,16 @@ require('nvim-tree').setup {
       show = {
         folder = true,
       },
+      glyphs = {
+        folder = {
+          default = '',
+          open = '',
+          empty = '',
+          empty_open = '',
+          symlink = '',
+          symlink_open = '',
+        },
+      },
     },
   },
 }
