@@ -128,7 +128,11 @@ return packer.startup(function(use)
     after = 'nvim-treesitter',
     event = 'BufRead',
     config = function()
-      require('indent_blankline').setup { char = '┆' }
+      require('indent_blankline').setup {
+        char = '┆',
+        show_trailing_blankline_indent = false,
+        show_first_indent_level = false,
+      }
     end,
   }
 
