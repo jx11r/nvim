@@ -19,7 +19,7 @@ require('nvim-tree').setup {
   view = {
     hide_root_folder = true,
     signcolumn = 'yes',
-    width = math.floor(vim.o.columns / 5),
+    width = math.floor(vim.o.columns / 6),
     float = {
       enable = false,
       quit_on_focus_loss = true,
