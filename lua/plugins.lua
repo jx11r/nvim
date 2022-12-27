@@ -65,9 +65,7 @@ return packer.startup(function(use)
   use {
     'NvChad/nvim-colorizer.lua',
     -- cmd = 'ColorizerToggle',
-    config = function()
-      require('colorizer').setup()
-    end,
+    config = [[ require 'config.colorizer' ]],
   }
 
   -- File Explorer
