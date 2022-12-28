@@ -158,13 +158,7 @@ return packer.startup(function(use)
     'lukas-reineke/indent-blankline.nvim',
     after = 'nvim-treesitter',
     event = 'BufRead',
-    config = function()
-      require('indent_blankline').setup {
-        char = '┆',
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = false,
-      }
-    end,
+    config = [[ require 'config.blankline' ]],
   }
 
   use {
