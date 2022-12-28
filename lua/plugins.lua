@@ -73,7 +73,7 @@ return packer.startup(function(use)
   -- Color Highlighter
   use {
     'NvChad/nvim-colorizer.lua',
-    event = 'BufRead',
+    after = 'catppuccin',
     config = [[ require 'config.colorizer' ]],
   }
 
