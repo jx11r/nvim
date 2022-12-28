@@ -16,6 +16,7 @@ require('mason').setup {
   },
 }
 
+-- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local lsp_servers = {
   'sumneko_lua',
 }
