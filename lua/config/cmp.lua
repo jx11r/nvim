@@ -1,11 +1,7 @@
-if not pcall(require, 'cmp') or not pcall(require, 'luasnip') then
-  return
-end
-
-vim.o.completeopt = 'menu,menuone,noselect'
-
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+
+vim.o.completeopt = 'menu,menuone,noselect'
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -17,7 +13,7 @@ end
 cmp.setup {
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
 
