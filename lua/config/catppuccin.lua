@@ -13,6 +13,7 @@ catppuccin.setup {
     gitsigns = true,
     hop = true,
     nvimtree = true,
+    mason = true,
     telescope = true,
     treesitter = true,
   },
