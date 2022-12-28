@@ -6,7 +6,15 @@ if not success then
   return
 end
 
--- Popup Window
+-- Automatically compile packer whenever plugins.lua is updated
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]]
+
+-- Custom packer initialization
 packer.init {
   auto_reload_compiled = true,
   display = {
@@ -22,7 +30,7 @@ packer.init {
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
-  -- use 'dstein64/vim-startuptime'
+  use 'dstein64/vim-startuptime'
 
   -- Colorscheme
   use {
@@ -58,13 +66,14 @@ return packer.startup(function(use)
     run = function()
       require('nvim-treesitter.install').update()
     end,
+    event = 'BufRead',
     config = [[ require 'config.treesitter' ]],
   }
 
   -- Color Highlighter
   use {
     'NvChad/nvim-colorizer.lua',
-    -- cmd = 'ColorizerToggle',
+    event = 'BufRead',
     config = [[ require 'config.colorizer' ]],
   }
 
@@ -94,11 +103,41 @@ return packer.startup(function(use)
     end,
   }
 
+  -- LSP
+  use {
+    'williamboman/mason.nvim',
+    cmd = 'Mason',
+    module = 'mason-lspconfig',
+    config = [[ require 'config.mason' ]],
+  }
+
+  use {
+    'williamboman/mason-lspconfig.nvim',
+    cmd = { 'LspInstall', 'LspUninstall' },
+    module = 'mason',
+    config = function()
+      require('mason-lspconfig').setup()
+    end,
+  }
+
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[ require 'config.lsp' ]],
+  }
+
   -- Completion
   use {
     'rafamadriz/friendly-snippets',
     event = 'InsertEnter',
-    module = 'cmp',
+    requires = {
+      {
+        'L3MON4D3/LuaSnip',
+        after = 'friendly-snippets',
+        config = function()
+          require('luasnip.loaders.from_vscode').lazy_load()
+        end,
+      },
+    },
   }
 
   use {
@@ -108,16 +147,10 @@ return packer.startup(function(use)
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
     },
     config = [[ require 'config.cmp' ]],
-  }
-
-  use {
-    'L3MON4D3/LuaSnip',
-    after = 'nvim-cmp',
-    config = function()
-      require('luasnip.loaders.from_vscode').lazy_load()
-    end,
   }
 
   -- Editing Support
@@ -158,6 +191,7 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Automatically set up the configuration after cloning packer
   if g.packer_bootstrap then
     packer.sync()
   end

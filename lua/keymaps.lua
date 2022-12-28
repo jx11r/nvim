@@ -1,9 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Reload init.lua
-map('n', '<Space>r', ':source $MYVIMRC<cr>')
-
 -- Write / Quit
 map('n', '<Space>w', ':w<cr>')
 map('n', '<Space>q', ':q<cr>')

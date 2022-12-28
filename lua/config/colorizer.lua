@@ -1,6 +1,6 @@
 local success, colorizer = pcall(require, 'colorizer')
 
-if not succes then
+if not success then
   return
 end
 

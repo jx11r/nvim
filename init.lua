@@ -2,9 +2,13 @@ if pcall(require, 'impatient') then
   require 'impatient'
 end
 
-local g = vim.g
+local env = vim.env
 local fn = vim.fn
+local g = vim.g
 local path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+
+-- Add mason's bin location to path
+env.PATH = env.PATH .. ':' .. fn.stdpath 'data' .. '/mason/bin'
 
 -- Automatically install packer
 if fn.empty(fn.glob(path)) > 0 then
@@ -18,6 +22,15 @@ if fn.empty(fn.glob(path)) > 0 then
   }
   vim.cmd [[ packadd packer.nvim ]]
   vim.g.packer_bootstrap = true
+
+  -- Post-install set up
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'PackerComplete',
+    callback = function()
+      require('packer').loader 'mason.nvim'
+      require('packer').loader 'nvim-treesitter'
+    end,
+  })
 end
 
 -- Disable built-in vim plugins
@@ -43,7 +56,7 @@ g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
--- Load modules
+-- Load lua modules
 require 'options'
 require 'keymaps'
 require 'plugins'
