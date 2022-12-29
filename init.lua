@@ -42,6 +42,7 @@ for _, plugin in ipairs {
   'netrwPlugin',
   'remote_plugins',
   'shada_plugin',
+  'spellfile_plugin',
   'tarPlugin',
   '2html_plugin',
   'tutor_mode_plugin',
