@@ -1,7 +1,10 @@
 require('mason').setup {
   PATH = 'skip',
+  max_concurrent_installers = 4,
+
   ui = {
-    border = 'rounded',
+    border = 'none',
+    check_outdated_packages_on_open = true,
     keymaps = {
       toggle_package_expand = '<CR>',
       install_package = 'i',

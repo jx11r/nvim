@@ -6,7 +6,7 @@ end
 
 catppuccin.setup {
   flavour = 'mocha',
-  transparent_background = true,
+  transparent_background = false,
 
   integrations = {
     cmp = true,
@@ -16,6 +16,16 @@ catppuccin.setup {
     mason = true,
     telescope = true,
     treesitter = true,
+  },
+
+  highlight_overrides = {
+    mocha = function(mocha)
+      return {
+        -- Nvim Tree
+        NvimTreeRootFolder = { fg = mocha.mantle },
+        NvimTreeWinSeparator = { bg = 'none' },
+      }
+    end,
   },
 }
 
