@@ -16,6 +16,7 @@ catppuccin.setup {
     mason = true,
     telescope = true,
     treesitter = true,
+    ts_rainbow = true,
   },
 
   highlight_overrides = {

@@ -4,6 +4,11 @@ require('nvim-treesitter.configs').setup {
     disable = {},
   },
 
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+  },
+
   ensure_installed = {
     'bash',
     'c',
