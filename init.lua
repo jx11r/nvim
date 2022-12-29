@@ -37,8 +37,8 @@ end
 for _, plugin in ipairs {
   'gzip',
   'man',
-  'matchit',
-  'matchparen',
+  -- 'matchit',
+  -- 'matchparen',
   'netrwPlugin',
   'remote_plugins',
   'shada_plugin',
