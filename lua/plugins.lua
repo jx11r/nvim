@@ -161,6 +161,14 @@ return packer.startup(function(use)
   }
 
   use {
+    'kylechui/nvim-surround',
+    after = 'nvim-treesitter',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  }
+
+  use {
     'numToStr/Comment.nvim',
     keys = { 'gc', 'gb' },
     config = function()
