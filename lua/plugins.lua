@@ -157,7 +157,6 @@ return packer.startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     after = 'nvim-treesitter',
-    event = 'BufRead',
     config = [[ require 'config.blankline' ]],
   }
 
