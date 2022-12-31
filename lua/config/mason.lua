@@ -20,11 +20,12 @@ require('mason').setup {
 }
 
 -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-local lsp_servers = {
+local servers = {
   'sumneko_lua',
+  'clangd',
 }
 
 -- Automatically install LSP servers at packer bootstrap
 if vim.g.packer_bootstrap then
-  vim.cmd('bw | silent! LspInstall ' .. table.concat(lsp_servers, ' '))
+  vim.cmd('bw | silent! LspInstall ' .. table.concat(servers, ' '))
 end
