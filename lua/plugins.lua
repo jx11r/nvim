@@ -150,7 +150,7 @@ return packer.startup(function(use)
 
   use {
     'hrsh7th/nvim-cmp',
-    after = 'LuaSnip',
+    after = 'lspkind.nvim',
     requires = {
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
