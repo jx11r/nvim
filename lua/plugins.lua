@@ -1,5 +1,4 @@
 local success, packer = pcall(require, 'packer')
-local g = vim.g
 
 -- Check if packer hasn't been installed yet
 if not success then
@@ -142,6 +141,10 @@ return packer.startup(function(use)
           require('luasnip.loaders.from_vscode').lazy_load()
         end,
       },
+      {
+        'onsails/lspkind.nvim',
+        after = 'friendly-snippets',
+      },
     },
   }
 
@@ -198,7 +201,7 @@ return packer.startup(function(use)
   }
 
   -- Automatically set up the configuration after cloning packer
-  if g.packer_bootstrap then
+  if vim.g.packer_bootstrap then
     packer.sync()
   end
 end)
