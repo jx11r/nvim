@@ -3,7 +3,7 @@ require('mason').setup {
   max_concurrent_installers = 4,
 
   ui = {
-    border = 'none',
+    border = 'rounded',
     check_outdated_packages_on_open = true,
     keymaps = {
       toggle_package_expand = '<CR>',
