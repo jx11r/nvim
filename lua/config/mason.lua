@@ -22,7 +22,7 @@ require('mason').setup {
 -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
   'sumneko_lua',
-  'clangd',
+  -- 'clangd',
 }
 
 -- Automatically install LSP servers at packer bootstrap
