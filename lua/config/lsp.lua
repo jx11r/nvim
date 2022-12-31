@@ -6,8 +6,9 @@ end
 
 local map = vim.keymap.set
 local options = { noremap = true, silent = true }
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Mappings
+-- Global Mappings
 map('n', 'q', vim.diagnostic.open_float, options)
 map('n', '[d', vim.diagnostic.goto_prev, options)
 map('n', ']d', vim.diagnostic.goto_next, options)
@@ -16,7 +17,7 @@ map('n', '<C-d>', vim.diagnostic.setloclist, options)
 local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  -- Mappings
+  -- Mappings per client
   map('n', 'gD', vim.lsp.buf.declaration, opts)
   map('n', 'gd', vim.lsp.buf.definition, opts)
   map('n', 'K', vim.lsp.buf.hover, opts)
@@ -32,8 +33,40 @@ local on_attach = function(client, bufnr)
   client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- UI Customization
+local border = {
+  { '╭', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '╮', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+  { '╯', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '╰', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+}
 
+local open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return open_floating_preview(contents, syntax, opts, ...)
+end
+
+vim.diagnostic.config {
+  virtual_text = { prefix = '●' },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+}
+
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+end
+
+-- Enable LSP servers
 lsp.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
