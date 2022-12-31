@@ -5,7 +5,7 @@ if not success then
 end
 
 local map = vim.keymap.set
-local options = {noremap = true, silent = true }
+local options = { noremap = true, silent = true }
 
 -- Mappings
 map('n', 'q', vim.diagnostic.open_float, options)
