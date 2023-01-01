@@ -19,7 +19,6 @@
 
 ## Requirements
 - fd
-- gcc
 - git
 - neovim
 - npm
