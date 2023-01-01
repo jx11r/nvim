@@ -37,7 +37,7 @@ function M.config()
     'sumneko_lua',
   }
 
-  -- automatically install lsp servers on lazy bootstrapping
+  -- automatically install lsp servers at lazy bootstrapping
   if vim.g.lazy_bootstrap then
     vim.cmd('bw | silent! LspInstall ' .. table.concat(servers, ' '))
   end
