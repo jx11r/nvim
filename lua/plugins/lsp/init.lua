@@ -7,7 +7,6 @@ local M = {
 }
 
 function M.config()
-  require 'mason'
   require('plugins.lsp.ui').setup()
 
   local function on_attach(client, bufnr)

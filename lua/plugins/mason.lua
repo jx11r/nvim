@@ -1,9 +1,16 @@
 local M = {
   'williamboman/mason.nvim',
+  event = 'VeryLazy',
+  dependencies = {
+    'williamboman/mason-lspconfig.nvim',
+  },
 }
 
 function M.config()
   require('mason').setup {
+    PATH = 'skip',
+    max_concurrent_installers = 4,
+
     ui = {
       border = 'rounded',
       check_outdated_packages_on_open = true,

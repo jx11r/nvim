@@ -1,5 +1,9 @@
+local env = vim.env
 local fn = vim.fn
 local path = fn.stdpath 'data' .. '/lazy/lazy.nvim'
+
+-- add mason's bin location to path
+env.PATH = env.PATH .. ':' .. fn.stdpath 'data' .. '/mason/bin'
 
 -- automatically install lazy.nvim
 if not vim.loop.fs_stat(path) then
@@ -19,6 +23,7 @@ vim.opt.rtp:prepend(path)
 require('lazy').setup('plugins', {
   lockfile = fn.stdpath 'config' .. '/.lock.json',
   ui = { border = 'rounded' },
+  change_detection = { notify = false },
 
   defaults = {
     lazy = true,

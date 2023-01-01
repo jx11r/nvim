@@ -1,6 +1,5 @@
 return {
   'nvim-lua/plenary.nvim',
-  'williamboman/mason-lspconfig.nvim',
 
   {
     'dstein64/vim-startuptime',
