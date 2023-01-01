@@ -11,7 +11,7 @@ function M.config()
 
   local function on_attach(client, bufnr)
     require('plugins.lsp.formatting').setup(client, bufnr)
-    require('plugins.lsp.mapping').setup(client, bufnr)
+    require('plugins.lsp.keymaps').setup(client, bufnr)
   end
 
   local servers = {
@@ -28,11 +28,9 @@ function M.config()
     },
   }
 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
   local options = {
     on_attach = on_attach,
-    capabilities = capabilities,
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
     flags = {
       debounce_text_changes = 150,
     },
