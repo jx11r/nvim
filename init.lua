@@ -6,6 +6,5 @@ vim.api.nvim_create_autocmd('User', {
   callback = function()
     require 'core.autocmds'
     require 'core.keymaps'
-    require 'mason'
   end,
 })
