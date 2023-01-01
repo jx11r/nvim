@@ -15,6 +15,7 @@ function M.config()
   end
 
   local servers = {
+    clangd = {},
     sumneko_lua = {
       settings = {
         Lua = {

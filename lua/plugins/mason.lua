@@ -34,6 +34,7 @@ function M.config()
 
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
   local servers = {
+    'clangd',
     'sumneko_lua',
   }
 
