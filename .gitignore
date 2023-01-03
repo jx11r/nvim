@@ -1,5 +1,5 @@
 # Files
-plugin/packer_compiled.lua
+.lock.json
 
 # Folders
 .vscode
