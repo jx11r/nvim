@@ -7,8 +7,7 @@ env.PATH = env.PATH .. ':' .. fn.stdpath 'data' .. '/mason/bin'
 
 -- automatically install lazy.nvim
 if not vim.loop.fs_stat(path) then
-  print 'Installing lazy.nvim...'
-  vim.g.lazy_bootstrap = true
+  print 'Installing plugins...'
   fn.system {
     'git',
     'clone',
@@ -17,6 +16,7 @@ if not vim.loop.fs_stat(path) then
     '--branch=stable',
     path,
   }
+  vim.g.lazy_bootstrap = true
 end
 vim.opt.rtp:prepend(path)
 

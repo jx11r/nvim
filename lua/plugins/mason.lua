@@ -8,9 +8,8 @@ local M = {
 
 function M.config()
   require('mason').setup {
-    PATH = 'skip',
     max_concurrent_installers = 4,
-
+    PATH = 'skip',
     ui = {
       border = 'rounded',
       check_outdated_packages_on_open = true,
@@ -28,19 +27,16 @@ function M.config()
     },
   }
 
-  require('mason-lspconfig').setup {
-    automatic_installation = false,
-  }
-
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-  local servers = {
-    'clangd',
-    'sumneko_lua',
+  require('mason-lspconfig').setup {
+    ensure_installed = {
+      'clangd',
+      'sumneko_lua',
+    }
   }
 
-  -- automatically install lsp servers at lazy bootstrapping
   if vim.g.lazy_bootstrap then
-    vim.cmd('bw | silent! LspInstall ' .. table.concat(servers, ' '))
+    vim.cmd [[ bw | silent! Mason ]]
   end
 end
 
