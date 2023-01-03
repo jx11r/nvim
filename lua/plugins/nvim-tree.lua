@@ -14,7 +14,7 @@ function M.config()
     actions = {
       open_file = {
         quit_on_open = true,
-        resize_window = true,
+        resize_window = false,
       },
     },
 
@@ -58,7 +58,7 @@ function M.config()
     },
 
     view = {
-      adaptive_size = true,
+      adaptive_size = false,
       hide_root_folder = false,
       signcolumn = 'yes',
       width = math.floor(vim.o.columns / 5.5),
