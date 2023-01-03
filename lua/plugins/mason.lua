@@ -32,7 +32,7 @@ function M.config()
     ensure_installed = {
       'clangd',
       'sumneko_lua',
-    }
+    },
   }
 
   if vim.g.lazy_bootstrap then
