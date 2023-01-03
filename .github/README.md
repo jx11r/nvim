@@ -22,6 +22,8 @@
 - git
 - neovim
 - npm
+- python-pip
+- python-virtualenv
 - ripgrep
 - unzip
 - wget

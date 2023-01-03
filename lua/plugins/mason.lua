@@ -40,12 +40,16 @@ function M.config()
   require('mason-lspconfig').setup {
     ensure_installed = {
       'clangd',
+      'jedi_language_server',
       'sumneko_lua',
     },
   }
 
   -- install tools automatically
   M.ensure_installed {
+    'black',
+    'mypy',
+    'ruff',
     'stylua',
   }
 
