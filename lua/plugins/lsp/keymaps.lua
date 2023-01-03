@@ -16,6 +16,7 @@ function M.setup(client, bufnr)
   map('n', '<Space>t', vim.lsp.buf.type_definition, opts)
   map('n', '<Space>rn', vim.lsp.buf.rename, opts)
   map('n', '<Space>ca', vim.lsp.buf.code_action, opts)
+  map('n', '<C-f>', vim.lsp.buf.format, opts)
 end
 
 return M

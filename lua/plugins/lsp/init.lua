@@ -10,14 +10,11 @@ function M.config()
   local servers = require 'plugins.lsp.servers'
   require('plugins.lsp.ui').setup()
 
-  local function on_attach(client, bufnr)
-    require('plugins.lsp.keymaps').setup(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end
-
   local options = {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      require('plugins.lsp.format').setup(client, bufnr)
+      require('plugins.lsp.keymaps').setup(client, bufnr)
+    end,
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
   }
 

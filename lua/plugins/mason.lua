@@ -6,9 +6,18 @@ local M = {
   },
 }
 
+function M.ensure_installed(pkgs)
+  local mr = require 'mason-registry'
+  for _, pkg in ipairs(pkgs) do
+    local p = mr.get_package(pkg)
+    if not p:is_installed() then
+      p:install()
+    end
+  end
+end
+
 function M.config()
   require('mason').setup {
-    max_concurrent_installers = 4,
     PATH = 'skip',
     ui = {
       border = 'rounded',
@@ -33,6 +42,11 @@ function M.config()
       'clangd',
       'sumneko_lua',
     },
+  }
+
+  -- install tools automatically
+  M.ensure_installed {
+    'stylua',
   }
 
   if vim.g.lazy_bootstrap then
