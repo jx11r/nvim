@@ -22,7 +22,7 @@ opt.iskeyword:append '-'
 opt.lazyredraw = true
 opt.smartcase = true
 opt.swapfile = false
-opt.title = true
+opt.title = false
 opt.timeoutlen = 300
 opt.undofile = true
 opt.updatetime = 300
@@ -59,3 +59,10 @@ opt.shiftwidth = 2
 opt.smartindent = true
 opt.tabstop = 2
 opt.wrap = true
+
+-- neovide
+if g.neovide then
+  opt.guifont = 'FiraCode Nerd Font:h10'
+  g.neovide_hide_mouse_when_typing = true
+  -- g.neovide_cursor_animation_length = 0
+end
