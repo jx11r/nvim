@@ -21,6 +21,8 @@
 - fd
 - git
 - neovim
+- neovide (Optional)
+  - ttf-firacode-nerd
 - npm
 - python-pip
 - python-virtualenv
