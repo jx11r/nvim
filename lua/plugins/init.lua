@@ -101,4 +101,13 @@ return {
     event = 'InsertEnter',
     config = true,
   },
+
+  {
+    'rcarriga/nvim-notify',
+    event = 'VeryLazy',
+    config = function()
+      require('notify').setup { timeout = 3000 }
+      vim.notify = require 'notify'
+    end,
+  },
 }

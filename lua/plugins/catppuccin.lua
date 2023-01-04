@@ -14,6 +14,7 @@ function M.config()
       cmp = true,
       gitsigns = true,
       hop = true,
+      notify = true,
       nvimtree = true,
       mason = true,
       telescope = true,
