@@ -16,7 +16,7 @@ function M.config()
       -- https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
       diagnostics.ruff.with { extra_args = { '--extend-ignore=E501' } },
       diagnostics.mypy,
-      -- formatting.black,
+      formatting.black,
     },
   }
 end

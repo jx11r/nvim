@@ -1,9 +1,19 @@
 local M = {}
 
-function M.format(bufnr)
-  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  local get_available = require('null-ls.sources').get_available
+function M.disabled(ft)
+  local filetypes = {
+    'python',
+  }
 
+  for _, filetype in pairs(filetypes) do
+    if filetype == ft then
+      return true
+    end
+  end
+end
+
+function M.format(bufnr, ft)
+  local get_available = require('null-ls.sources').get_available
   vim.lsp.buf.format {
     filter = function(client)
       if #get_available(ft, 'NULL_LS_FORMATTING') > 0 then
@@ -16,12 +26,13 @@ function M.format(bufnr)
 end
 
 function M.setup(client, bufnr)
-  if client.supports_method 'textDocument/formatting' then
+  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+  if client.supports_method 'textDocument/formatting' and not M.disabled(ft) then
     vim.api.nvim_create_autocmd('BufWritePre', {
       group = vim.api.nvim_create_augroup('LspFormat', {}),
       buffer = bufnr,
       callback = function()
-        M.format(bufnr)
+        M.format(bufnr, ft)
       end,
     })
   end
