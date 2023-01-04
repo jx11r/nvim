@@ -20,9 +20,9 @@
 ## Requirements
 - fd
 - git
-- neovim
 - neovide (Optional)
-  - ttf-firacode-nerd
+  - ttf-firacode-nerd (Optional)
+- neovim
 - npm
 - python-pip
 - python-virtualenv
