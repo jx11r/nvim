@@ -2,8 +2,8 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- write / quit
-map('n', '<leader>w', ':w<cr>')
-map('n', '<leader>q', ':q<cr>')
+map('n', '<leader>w', ':w<cr>', opts)
+map('n', '<leader>q', ':q<cr>', opts)
 
 -- select all
 map('n', '<C-a>', 'gg<S-v>G')
