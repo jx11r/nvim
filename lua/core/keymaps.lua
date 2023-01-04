@@ -43,4 +43,7 @@ map('n', '<leader>g', ':Telescope live_grep<cr>', opts)
 map('n', 'tb', ':Gitsigns toggle_current_line_blame<cr>', opts)
 
 -- go to any word in the current buffer
-map('n', '<Space>s', ':HopWord<cr>', opts)
+map('n', '<leader>s', ':HopWord<cr>', opts)
+
+-- tree like view for symbols
+map('n', 'ts', ':SymbolsOutline<cr>', opts)

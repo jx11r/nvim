@@ -85,6 +85,12 @@ return {
   },
 
   {
+    'kevinhwang91/nvim-hlslens',
+    event = 'VeryLazy',
+    config = true,
+  },
+
+  {
     'numToStr/Comment.nvim',
     keys = { 'gc', 'gb' },
     config = true,
@@ -94,6 +100,21 @@ return {
     'phaazon/hop.nvim',
     cmd = 'HopWord',
     config = true,
+  },
+
+  {
+    'stevearc/dressing.nvim',
+    event = 'VeryLazy',
+    config = true,
+  },
+
+  {
+    'simrat39/symbols-outline.nvim',
+    cmd = 'SymbolsOutline',
+    config = {
+      relative_width = true,
+      width = 35,
+    },
   },
 
   {

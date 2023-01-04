@@ -17,6 +17,7 @@ function M.config()
       notify = true,
       nvimtree = true,
       mason = true,
+      symbols_outline = true,
       telescope = true,
       treesitter = true,
       ts_rainbow = true,
