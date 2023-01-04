@@ -8,6 +8,8 @@ local M = {
     'hrsh7th/cmp-path',
     'onsails/lspkind.nvim',
     'saadparwaiz1/cmp_luasnip',
+    'lukas-reineke/cmp-under-comparator',
+    { 'windwp/nvim-autopairs', config = true },
   },
 }
 
@@ -21,6 +23,10 @@ function M.config()
   local cmp = require 'cmp'
   local luasnip = require 'luasnip'
   local lspkind = require 'lspkind'
+  local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+
+  -- add parentheses after selecting function or method item
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
   cmp.setup {
     snippet = {
@@ -68,10 +74,25 @@ function M.config()
       end, { 'i', 's' }),
     },
 
+    sorting = {
+      comparators = {
+        cmp.config.compare.offset,
+        cmp.config.compare.exact,
+        cmp.config.compare.score,
+        require('cmp-under-comparator').under,
+        cmp.config.compare.recently_used,
+        cmp.config.compare.locality,
+        cmp.config.compare.kind,
+        cmp.config.compare.sort_text,
+        cmp.config.compare.length,
+        cmp.config.compare.order,
+      },
+    },
+
     sources = cmp.config.sources {
-      { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
+      { name = 'luasnip' },
       { name = 'buffer' },
       { name = 'path' },
     },

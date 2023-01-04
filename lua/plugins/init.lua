@@ -97,12 +97,6 @@ return {
   },
 
   {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
-  },
-
-  {
     'rcarriga/nvim-notify',
     event = 'VeryLazy',
     config = function()
