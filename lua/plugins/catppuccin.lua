@@ -29,12 +29,20 @@ function M.config()
     highlight_overrides = {
       mocha = function(mocha)
         return {
-          -- nvim-tree
           NvimTreeRootFolder = { fg = mocha.mantle },
           NvimTreeWinSeparator = { bg = 'none' },
         }
       end,
     },
+
+    custom_highlights = function(color)
+      return {
+        AlphaHeader = { fg = color.blue },
+        AlphaButton = { fg = color.pink },
+        AlphaShortcut = { fg = color.red },
+        AlphaFooter = { fg = color.surface1, style = { 'italic' } },
+      }
+    end,
   }
 
   vim.cmd [[ colorscheme catppuccin ]]

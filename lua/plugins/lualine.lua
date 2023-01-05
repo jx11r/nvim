@@ -4,13 +4,19 @@ local M = {
 }
 
 function M.config()
-  vim.opt.laststatus = 3
   require('lualine').setup {
     options = {
+      globalstatus = true,
       icons_enabled = true,
       theme = 'catppuccin',
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
+      disabled_filetypes = {
+        'alpha',
+        'lazy',
+        'mason',
+        'TelescopePrompt',
+      },
     },
 
     sections = {
