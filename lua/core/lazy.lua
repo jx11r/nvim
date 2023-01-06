@@ -22,6 +22,7 @@ vim.opt.rtp:prepend(path)
 
 require('lazy').setup('plugins', {
   lockfile = fn.stdpath 'config' .. '/.lock.json',
+  dev = { path = '~/git' },
   ui = { border = 'rounded' },
   change_detection = { notify = false },
 
