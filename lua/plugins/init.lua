@@ -56,14 +56,13 @@ return {
   },
 
   {
-    'yamatsum/nvim-cursorline',
+    'jx11r/cursorline.nvim',
     event = 'VeryLazy',
     config = {
-      cursorword = { enable = false },
-      cursorline = {
-        enable = true,
-        number = true,
-        timeout = 500,
+      auto_hide = true,
+      timeout = 500,
+      disabled_filetypes = {
+        'alpha',
       },
     },
   },
