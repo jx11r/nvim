@@ -1,10 +1,10 @@
-require 'core.options'
-require 'core.lazy'
+require 'options'
+require 'init'
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
   callback = function()
-    require 'core.autocmds'
-    require 'core.keymaps'
+    require 'autocmds'
+    require 'keymaps'
   end,
 })
