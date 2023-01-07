@@ -1,5 +1,5 @@
 -- close filetypes with <q>
-vim.api.nvim_create_autocmd({ 'FileType' }, {
+vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'help',
     'lspinfo',
