@@ -59,3 +59,6 @@ opt.shiftwidth = 2
 opt.smartindent = true
 opt.tabstop = 2
 opt.wrap = true
+
+-- programming language support
+g.python_recommended_style = 0
