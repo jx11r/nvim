@@ -53,8 +53,8 @@ function M.config()
     'stylua',
   }
 
-  if vim.g.lazy_bootstrap then
-    vim.cmd [[ bw | silent! Mason ]]
+  if vim.g.bootstrap then
+    vim.cmd [[ silent! Mason ]]
   end
 end
 

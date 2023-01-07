@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(path) then
     '--branch=stable',
     path,
   }
-  vim.g.lazy_bootstrap = true
+  vim.g.bootstrap = true
 end
 vim.opt.rtp:prepend(path)
 

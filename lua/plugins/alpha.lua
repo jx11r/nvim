@@ -63,7 +63,9 @@ function M.config()
     vim.api.nvim_create_autocmd('User', {
       pattern = 'AlphaReady',
       callback = function()
-        require('lazy').show()
+        if not vim.g.bootstrap then
+          require('lazy').show()
+        end
       end,
     })
   end
