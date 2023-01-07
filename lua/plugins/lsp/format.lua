@@ -1,16 +1,8 @@
 local M = {}
 
-function M.disabled(ft)
-  local filetypes = {
-    'python',
-  }
-
-  for _, filetype in pairs(filetypes) do
-    if filetype == ft then
-      return true
-    end
-  end
-end
+M.disabled_filetypes = {
+  'python',
+}
 
 function M.format(bufnr, ft)
   local get_available = require('null-ls.sources').get_available
@@ -26,13 +18,17 @@ function M.format(bufnr, ft)
 end
 
 function M.setup(client, bufnr)
-  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  if client.supports_method 'textDocument/formatting' and not M.disabled(ft) then
+  local ft = vim.bo[bufnr].filetype
+  if vim.tbl_contains(M.disabled_filetypes, ft) then
+    return
+  end
+
+  if client.supports_method 'textDocument/formatting' then
     vim.api.nvim_create_autocmd('BufWritePre', {
       group = vim.api.nvim_create_augroup('LspFormat', {}),
       buffer = bufnr,
-      callback = function()
-        M.format(bufnr, ft)
+      callback = function(e)
+        M.format(e.buf, vim.bo[e.buf].filetype)
       end,
     })
   end

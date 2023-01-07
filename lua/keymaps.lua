@@ -16,10 +16,10 @@ map('n', 'ss', '<C-w>v')
 map('n', 'sw', '<C-w>s')
 
 -- switch between windows
-map('n', '<A-left>', '<C-w>h')
-map('n', '<A-right>', '<C-w>l')
-map('n', '<A-up>', '<C-w>k')
-map('n', '<A-down>', '<C-w>j')
+map('n', '<A-h>', '<C-w>h')
+map('n', '<A-l>', '<C-w>l')
+map('n', '<A-k>', '<C-w>k')
+map('n', '<A-j>', '<C-w>j')
 
 -- resize window
 map('n', '<S-left>', '<C-w>>')

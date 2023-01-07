@@ -31,7 +31,7 @@ function M.config()
     buttons = {
       type = 'group',
       val = {
-        button('e', '  New file', ':ene <bar> startinsert<cr>'),
+        button('e', '  New file', ':ene | startinsert<cr>'),
         button('f', '  Find file', ':Telescope find_files<cr>'),
         button('r', '  Recent files', ':Telescope oldfiles<cr>'),
         button('g', '  Find word', ':Telescope live_grep<cr>'),
