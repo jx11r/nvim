@@ -3,11 +3,10 @@ local M = {
   event = 'BufReadPre',
 }
 
-function M.config()
+function M.opts()
   local formatting = require('null-ls').builtins.formatting
   local diagnostics = require('null-ls').builtins.diagnostics
-
-  require('null-ls').setup {
+  return {
     sources = {
       -- [ lua ]
       formatting.stylua,

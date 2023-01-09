@@ -19,16 +19,16 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
 end
 
-function M.config()
+function M.opts()
   local cmp = require 'cmp'
   local luasnip = require 'luasnip'
   local lspkind = require 'lspkind'
-  local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+  local autopairs = require 'nvim-autopairs.completion.cmp'
 
   -- add parentheses after selecting function or method item
-  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+  cmp.event:on('confirm_done', autopairs.on_confirm_done())
 
-  cmp.setup {
+  return {
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)

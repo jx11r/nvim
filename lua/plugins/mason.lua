@@ -6,6 +6,25 @@ local M = {
   },
 }
 
+M.opts = {
+  PATH = 'skip',
+  ui = {
+    border = 'rounded',
+    check_outdated_packages_on_open = true,
+    keymaps = {
+      toggle_package_expand = '<CR>',
+      install_package = 'i',
+      update_package = 'u',
+      check_package_version = 'c',
+      update_all_packages = 'U',
+      check_outdated_packages = 'C',
+      uninstall_package = 'X',
+      cancel_installation = '<C-c>',
+      apply_language_filter = '<C-f>',
+    },
+  },
+}
+
 function M.ensure_installed(pkgs)
   local mr = require 'mason-registry'
   for _, pkg in ipairs(pkgs) do
@@ -16,25 +35,8 @@ function M.ensure_installed(pkgs)
   end
 end
 
-function M.config()
-  require('mason').setup {
-    PATH = 'skip',
-    ui = {
-      border = 'rounded',
-      check_outdated_packages_on_open = true,
-      keymaps = {
-        toggle_package_expand = '<CR>',
-        install_package = 'i',
-        update_package = 'u',
-        check_package_version = 'c',
-        update_all_packages = 'U',
-        check_outdated_packages = 'C',
-        uninstall_package = 'X',
-        cancel_installation = '<C-c>',
-        apply_language_filter = '<C-f>',
-      },
-    },
-  }
+function M.config(self, opts)
+  require('mason').setup(opts)
 
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
   require('mason-lspconfig').setup {
@@ -46,7 +48,7 @@ function M.config()
   }
 
   -- install tools automatically
-  M.ensure_installed {
+  self.ensure_installed {
     'black',
     'mypy',
     'ruff',

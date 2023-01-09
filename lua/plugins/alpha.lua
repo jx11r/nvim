@@ -15,10 +15,9 @@ M.ascii = {
   [[                                       ]],
 }
 
-function M.config()
+function M.opts()
   local button = require('alpha.themes.dashboard').button
-
-  local section = {
+  return {
     header = {
       type = 'text',
       val = M.ascii,
@@ -52,8 +51,10 @@ function M.config()
       },
     },
   }
+end
 
-  for _, value in ipairs(section.buttons.val) do
+function M.config(_, opts)
+  for _, value in ipairs(opts.buttons.val) do
     value.opts.hl = 'AlphaButton'
     value.opts.hl_shortcut = 'AlphaShortcut'
   end
@@ -73,11 +74,11 @@ function M.config()
   require('alpha').setup {
     layout = {
       { type = 'padding', val = 6 },
-      section.header,
+      opts.header,
       { type = 'padding', val = 2 },
-      section.buttons,
+      opts.buttons,
       { type = 'padding', val = 1 },
-      section.footer,
+      opts.footer,
     },
     opts = {
       margin = 5,
@@ -89,7 +90,7 @@ function M.config()
     callback = function()
       local stats = require('lazy').stats()
       local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      section.footer.val = 'Neovim loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+      opts.footer.val = 'Neovim loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
       pcall(vim.cmd.AlphaRedraw)
     end,
   })

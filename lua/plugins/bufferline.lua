@@ -3,10 +3,9 @@ local M = {
   event = 'BufAdd',
 }
 
-function M.config()
+function M.opts()
   local mocha = require('catppuccin.palettes').get_palette 'mocha'
-
-  require('bufferline').setup {
+  return {
     options = {
       always_show_bufferline = false,
       indicator = { style = 'none' },

@@ -11,7 +11,7 @@ return {
 
   {
     'nvim-tree/nvim-web-devicons',
-    config = { default = true },
+    opts = { default = true },
   },
 
   {
@@ -27,7 +27,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
-    config = {
+    opts = {
       defaults = {
         entry_prefix = '  ',
         prompt_prefix = '   ',
@@ -44,7 +44,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
-    config = {
+    opts = {
       current_line_blame = false,
       current_line_blame_formatter = ' <author>, <author_time:%y.%m.%d> · <summary>',
       current_line_blame_opts = {
@@ -58,7 +58,7 @@ return {
   {
     'jx11r/cursorline.nvim',
     event = 'VeryLazy',
-    config = {
+    opts = {
       auto_hide = true,
       timeout = 500,
       disabled_filetypes = {
@@ -70,7 +70,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufReadPre',
-    config = {
+    opts = {
       char = '┆',
       show_trailing_blankline_indent = false,
       show_first_indent_level = false,
@@ -110,7 +110,7 @@ return {
   {
     'simrat39/symbols-outline.nvim',
     cmd = 'SymbolsOutline',
-    config = {
+    opts = {
       relative_width = true,
       width = 35,
     },
@@ -119,9 +119,11 @@ return {
   {
     'rcarriga/nvim-notify',
     event = 'VeryLazy',
-    config = function()
-      require('notify').setup { timeout = 3000 }
+    opts = function()
       vim.notify = require 'notify'
+      return {
+        timeout = 3000,
+      }
     end,
   },
 }
