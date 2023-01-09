@@ -38,6 +38,7 @@ map('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
 -- fuzzy finder
 map('n', '<leader>f', ':Telescope find_files<cr>', opts)
 map('n', '<leader>g', ':Telescope live_grep<cr>', opts)
+map('n', '<leader>h', ':Telescope help_tags<cr>', opts)
 
 -- git integration
 map('n', 'tb', ':Gitsigns toggle_current_line_blame<cr>', opts)
