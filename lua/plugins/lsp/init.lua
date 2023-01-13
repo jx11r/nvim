@@ -8,7 +8,7 @@ local M = {
 M.opts = {
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = function(client, bufnr)
-    require('plugins.lsp.format').setup(client, bufnr)
+    require('plugins.lsp.formatting').setup(client, bufnr)
     require('plugins.lsp.keymaps').setup(client, bufnr)
   end,
 }

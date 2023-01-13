@@ -25,7 +25,7 @@ function M.setup(client, bufnr)
 
   if client.supports_method 'textDocument/formatting' then
     vim.api.nvim_create_autocmd('BufWritePre', {
-      group = vim.api.nvim_create_augroup('LspFormat', {}),
+      group = vim.api.nvim_create_augroup('LspFormatting', {}),
       buffer = bufnr,
       callback = function(e)
         M.format(e.buf, vim.bo[e.buf].filetype)
