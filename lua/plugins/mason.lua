@@ -41,17 +41,17 @@ function M.config(self, opts)
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
   require('mason-lspconfig').setup {
     ensure_installed = {
-      'clangd',
-      'jedi_language_server',
+      -- 'clangd',
+      -- 'jedi_language_server',
       'sumneko_lua',
     },
   }
 
   -- install tools automatically
   self.ensure_installed {
-    'black',
-    'mypy',
-    'ruff',
+    -- 'black',
+    -- 'mypy',
+    -- 'ruff',
     'stylua',
   }
 
