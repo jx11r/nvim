@@ -2,7 +2,7 @@
 return {
   -- clangd = {},
   -- jedi_language_server = {},
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
         workspace = { checkThirdParty = false },

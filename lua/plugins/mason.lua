@@ -43,7 +43,7 @@ function M.config(self, opts)
     ensure_installed = {
       -- 'clangd',
       -- 'jedi_language_server',
-      'sumneko_lua',
+      'lua_ls',
     },
   }
 
