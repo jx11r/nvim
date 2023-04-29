@@ -12,10 +12,8 @@ function M.opts()
       formatting.stylua,
 
       -- [ python ]
-      -- https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
-      -- diagnostics.ruff.with { extra_args = { '--extend-ignore=E501' } },
-      -- diagnostics.mypy,
-      -- formatting.black,
+      diagnostics.mypy,
+      formatting.black,
     },
   }
 end

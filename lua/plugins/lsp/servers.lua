@@ -1,7 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 return {
-  -- clangd = {},
-  -- jedi_language_server = {},
+  clangd = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -10,6 +9,14 @@ return {
         diagnostics = {
           globals = { 'vim' },
         },
+      },
+    },
+  },
+  ruff_lsp = {
+    init_options = {
+      settings = {
+        -- https://beta.ruff.rs/docs/rules
+        args = { '--extend-ignore=E501' },
       },
     },
   },

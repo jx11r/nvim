@@ -13,11 +13,11 @@ M.opts = {
   end,
 }
 
-function M.config(self, options)
+function M.config(self, opts)
   require('plugins.lsp.ui').setup()
-  for server, opts in pairs(self.servers) do
-    opts = vim.tbl_deep_extend('force', opts, options)
-    require('lspconfig')[server].setup(opts)
+  for server, options in pairs(self.servers) do
+    options = vim.tbl_deep_extend('force', options, opts)
+    require('lspconfig')[server].setup(options)
   end
 end
 
