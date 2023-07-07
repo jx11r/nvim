@@ -31,11 +31,11 @@ function M.opts()
       type = 'group',
       val = {
         button('e', '  New file', ':ene | startinsert<cr>'),
-        button('f', '  Find file', ':Telescope find_files<cr>'),
-        button('r', '  Recent files', ':Telescope oldfiles<cr>'),
-        button('g', '  Find word', ':Telescope live_grep<cr>'),
+        button('f', '󰍉  Find file', ':Telescope find_files<cr>'),
+        button('r', '󰈙  Recent files', ':Telescope oldfiles<cr>'),
+        button('g', '󰈭  Find word', ':Telescope live_grep<cr>'),
         button('c', '  Configuration', ':e $MYVIMRC | :cd %:p:h<cr>'),
-        button('sl', '  Open last session'),
+        button('sl', '󰁯  Open last session'),
       },
       opts = {
         spacing = 1,

@@ -1,10 +1,10 @@
 local M = {}
 
 M.signs = {
-  Error = ' ',
-  Hint = ' ',
+  Error = '󰅚 ',
+  Hint = '󰌶 ',
   Info = ' ',
-  Warn = ' ',
+  Warn = ' ',
 }
 
 M.border = {
