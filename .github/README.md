@@ -14,7 +14,7 @@
   </a>
 </div>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jx11r/src/!/img/neovim.png" />
+  <img src="https://raw.githubusercontent.com/jx11r/src/i/img/neovim.png" />
 </div>
 
 ## Requirements
