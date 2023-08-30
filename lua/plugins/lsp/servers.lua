@@ -1,6 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 return {
-  clangd = {},
+  -- clangd = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -12,12 +12,12 @@ return {
       },
     },
   },
-  ruff_lsp = {
-    init_options = {
-      settings = {
-        -- https://beta.ruff.rs/docs/rules
-        args = { '--extend-ignore=E501' },
-      },
-    },
-  },
+  -- ruff_lsp = {
+  --   init_options = {
+  --     settings = {
+  --       -- https://beta.ruff.rs/docs/rules
+  --       args = { '--extend-ignore=E501' },
+  --     },
+  --   },
+  -- },
 }

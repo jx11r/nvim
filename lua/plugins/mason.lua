@@ -41,17 +41,17 @@ function M.config(self, opts)
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
   require('mason-lspconfig').setup {
     ensure_installed = {
-      'clangd',
+      -- 'clangd',
       'lua_ls',
-      'ruff_lsp',
+      -- 'ruff_lsp',
     },
   }
 
   -- install tools automatically
   self.ensure_installed {
-    'black',
-    'mypy',
-    'ruff',
+    -- 'black',
+    -- 'mypy',
+    -- 'ruff',
     'stylua',
   }
 

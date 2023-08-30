@@ -12,8 +12,8 @@ function M.opts()
       formatting.stylua,
 
       -- [ python ]
-      diagnostics.mypy,
-      formatting.black,
+      -- diagnostics.mypy,
+      -- formatting.black,
     },
   }
 end
