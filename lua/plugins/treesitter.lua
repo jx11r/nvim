@@ -15,14 +15,13 @@ M.opts = {
 
   ensure_installed = {
     'bash',
-    'c',
     'diff',
     'git_config',
     'gitignore',
     'json',
     'lua',
     'markdown',
-    'python',
+    'nix',
     'regex',
     'ron',
     'toml',
