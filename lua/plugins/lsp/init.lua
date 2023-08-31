@@ -1,5 +1,6 @@
 local M = {
   'neovim/nvim-lspconfig',
+  enabled = false,
   event = 'BufReadPre',
   dependencies = { 'hrsh7th/cmp-nvim-lsp' },
   servers = require 'plugins.lsp.servers',

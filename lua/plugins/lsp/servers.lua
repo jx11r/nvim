@@ -1,6 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 return {
   -- clangd = {},
+
   lua_ls = {
     settings = {
       Lua = {
@@ -12,6 +13,7 @@ return {
       },
     },
   },
+
   -- ruff_lsp = {
   --   init_options = {
   --     settings = {
