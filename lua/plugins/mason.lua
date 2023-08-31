@@ -26,12 +26,21 @@ M.opts = {
 }
 
 function M.ensure_installed(pkgs)
-  local mr = require 'mason-registry'
-  for _, pkg in ipairs(pkgs) do
-    local p = mr.get_package(pkg)
-    if not p:is_installed() then
-      p:install()
+  local registry = require 'mason-registry'
+
+  function install()
+    for _, pkg in ipairs(pkgs) do
+      local p = registry.get_package(pkg)
+      if not p:is_installed() then
+        p:install()
+      end
     end
+  end
+
+  if registry.refresh then
+    registry.refresh(install)
+  else
+    install()
   end
 end
 
