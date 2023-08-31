@@ -30,8 +30,8 @@ function M.opts()
     highlights = require('catppuccin.groups.integrations.bufferline').get {
       custom = {
         mocha = {
-          fill = { bg = mocha.mantle },
-          indicator_visible = { bg = mocha.mantle },
+          -- fill = { bg = mocha.mantle },
+          -- indicator_visible = { bg = mocha.mantle },
         },
       },
     },

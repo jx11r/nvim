@@ -120,8 +120,11 @@ return {
     'rcarriga/nvim-notify',
     event = 'VeryLazy',
     opts = function()
+      local mocha = require('catppuccin.palettes').get_palette 'mocha'
       vim.notify = require 'notify'
+
       return {
+        background_colour = mocha.base;
         timeout = 3000,
       }
     end,
