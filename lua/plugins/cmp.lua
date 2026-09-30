@@ -1,33 +1,21 @@
 local M = {
-  'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'onsails/lspkind.nvim',
-    'saadparwaiz1/cmp_luasnip',
-    'lukas-reineke/cmp-under-comparator',
-    { 'windwp/nvim-autopairs', config = true },
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "lukas-reineke/cmp-under-comparator",
+    "onsails/lspkind.nvim",
   },
 }
 
-local function has_words_before()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
-end
-
-function M.opts()
-  local cmp = require 'cmp'
-  local luasnip = require 'luasnip'
-  local lspkind = require 'lspkind'
-  local autopairs = require 'nvim-autopairs.completion.cmp'
-
-  -- add parentheses after selecting function or method item
-  cmp.event:on('confirm_done', autopairs.on_confirm_done())
-
+M.opts = function()
+  local cmp = require("cmp")
+  local luasnip = require("luasnip")
+  local lspkind = require("lspkind")
   return {
     snippet = {
       expand = function(args)
@@ -40,46 +28,40 @@ function M.opts()
     },
 
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered({ border = "rounded" }),
+      documentation = cmp.config.window.bordered({ border = "rounded" }),
     },
 
-    mapping = cmp.mapping.preset.insert {
-      ['<Up>'] = cmp.mapping.select_prev_item(),
-      ['<Down>'] = cmp.mapping.select_next_item(),
-      ['<CR>'] = cmp.mapping.confirm { select = true },
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<Tab>'] = cmp.mapping(function(fallback)
+    mapping = cmp.mapping.preset.insert({
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-space>"] = cmp.mapping.complete(),
+      ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_next_item()
+          cmp.confirm({ select = true })
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
         else
           fallback()
         end
-      end, { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
           fallback()
         end
-      end, { 'i', 's' }),
-    },
+      end, { "i", "s" }),
+    }),
 
     sorting = {
       comparators = {
         cmp.config.compare.offset,
         cmp.config.compare.exact,
         cmp.config.compare.score,
-        require('cmp-under-comparator').under,
+        require("cmp-under-comparator").under,
         cmp.config.compare.recently_used,
         cmp.config.compare.locality,
         cmp.config.compare.kind,
@@ -89,13 +71,13 @@ function M.opts()
       },
     },
 
-    sources = cmp.config.sources {
-      { name = 'nvim_lsp' },
-      { name = 'nvim_lua' },
-      { name = 'luasnip' },
-      { name = 'buffer' },
-      { name = 'path' },
-    },
+    sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "nvim_lua" },
+      { name = "buffer" },
+      { name = "path" },
+      { name = "luasnip" },
+    }),
   }
 end
 

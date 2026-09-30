@@ -1,129 +1,195 @@
 return {
-  'nvim-lua/plenary.nvim',
+  { "nvim-lua/plenary.nvim", lazy = true },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
 
   {
-    'dstein64/vim-startuptime',
-    cmd = 'StartupTime',
-    config = function()
-      vim.g.startuptime_tries = 10
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      vim.cmd([[colorscheme tokyonight]])
     end,
-  },
-
-  {
-    'nvim-tree/nvim-web-devicons',
-    opts = { default = true },
-  },
-
-  {
-    'L3MON4D3/LuaSnip',
-    dependencies = {
-      'rafamadriz/friendly-snippets',
-      config = function()
-        require('luasnip.loaders.from_vscode').lazy_load()
+    opts = {
+      style = "night",
+      on_highlights = function(hl, colors)
+        hl.AlphaHeader = { fg = colors.blue5 }
+        hl.AlphaButton = { fg = colors.green1 }
+        hl.AlphaShortcut = { fg = colors.orange }
+        hl.AlphaFooter = { fg = colors.blue7, italic = true }
       end,
     },
   },
 
   {
-    'nvim-telescope/telescope.nvim',
-    cmd = 'Telescope',
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer local keymaps",
+      },
+    },
+    opts = { delay = 500 },
+  },
+
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+      },
+    },
     opts = {
-      defaults = {
-        entry_prefix = '  ',
-        prompt_prefix = '   ',
-        selection_caret = '  ',
-        sorting_strategy = 'ascending',
-        layout_strategy = 'horizontal',
-        layout_config = {
-          prompt_position = 'top',
+      modes = {
+        search = { enabled = true },
+        char = { enabled = false },
+      },
+    },
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    opts = {
+      cmdline = { view = "cmdline" },
+      lsp = {
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
         },
       },
-    },
-  },
-
-  {
-    'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre',
-    opts = {
-      current_line_blame = false,
-      current_line_blame_formatter = ' <author>, <author_time:%y.%m.%d> · <summary>',
-      current_line_blame_opts = {
-        virt_text = true,
-        virt_text_pos = 'eol',
-        delay = 500,
+      presets = {
+        long_message_to_split = true,
+        inc_rename = true,
+        lsp_doc_border = true,
       },
     },
   },
 
   {
-    'jx11r/cursorline.nvim',
-    event = 'VeryLazy',
-    opts = {
-      auto_hide = true,
-      timeout = 500,
-      disabled_filetypes = {
-        'alpha',
-      },
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {},
+  },
+
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    version = "*",
+    cmd = "Telescope",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-  },
-
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'BufReadPre',
-    opts = {
-      char = '┆',
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = false,
-    },
-  },
-
-  {
-    'kylechui/nvim-surround',
-    event = 'VeryLazy',
-    config = true,
-  },
-
-  {
-    'kevinhwang91/nvim-hlslens',
-    event = 'VeryLazy',
-    config = true,
-  },
-
-  {
-    'numToStr/Comment.nvim',
-    keys = { 'gc', 'gb' },
-    config = true,
-  },
-
-  {
-    'phaazon/hop.nvim',
-    cmd = 'HopWord',
-    config = true,
-  },
-
-  {
-    'stevearc/dressing.nvim',
-    event = 'VeryLazy',
-    config = true,
-  },
-
-  {
-    'simrat39/symbols-outline.nvim',
-    cmd = 'SymbolsOutline',
-    opts = {
-      relative_width = true,
-      width = 35,
-    },
-  },
-
-  {
-    'rcarriga/nvim-notify',
-    event = 'VeryLazy',
-    opts = function()
-      vim.notify = require 'notify'
-      return {
-        timeout = 3000,
-      }
+    config = function()
+      require("telescope").load_extension("fzf")
     end,
+  },
+
+  {
+    "stevearc/oil.nvim",
+    opts = {
+      watch_for_changes = true,
+      view_options = { show_hidden = true },
+      float = {
+        max_width = 0.8,
+        max_height = 0.8,
+        border = "rounded",
+      },
+    },
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    cmd = "AerialToggle",
+    opts = {
+      on_attach = function(bufnr)
+        vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+        vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+      end,
+    },
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function(_, opts)
+      require("ibl").setup(opts)
+      local hooks = require("ibl.hooks")
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+    end,
+    opts = {
+      indent = { char = "┆" },
+      scope = { enabled = false },
+    },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = { current_line_blame = true },
+  },
+
+  {
+    "brenoprata10/nvim-highlight-colors",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = { enable_tailwind = true },
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    version = "*",
+    dependencies = {
+      {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+    },
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = { check_ts = true },
+  },
+
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    opts = {},
   },
 }

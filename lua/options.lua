@@ -2,63 +2,61 @@ local opt = vim.opt
 local g = vim.g
 
 -- disable optional providers
-g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 
 -- leader key
-g.mapleader = ' '
-g.maplocalleader = ' '
+g.mapleader = " "
+g.maplocalleader = " "
 
--- general options
+-- general
+opt.confirm = true
 opt.backup = false
-opt.clipboard = 'unnamedplus'
-opt.completeopt = 'menu,menuone,noselect'
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
-opt.ignorecase = true
-opt.iskeyword:append '-'
-opt.lazyredraw = true
-opt.smartcase = true
-opt.swapfile = false
-opt.title = false
-opt.timeoutlen = 300
-opt.undofile = true
-opt.updatetime = 300
 opt.writebackup = false
+opt.swapfile = false
+opt.undofile = true
+opt.timeoutlen = 300
+opt.updatetime = 200
+opt.ignorecase = true
+opt.smartcase = true
+opt.inccommand = "nosplit"
+opt.clipboard = "unnamedplus"
+opt.completeopt = "menu,menuone,noselect"
+opt.iskeyword:append("-")
 
--- user interface
-opt.cmdheight = 1
-opt.cursorline = false
-opt.fillchars:append { eob = ' ' }
-opt.hidden = true
-opt.laststatus = 0
+-- interface
+opt.title = true
 opt.number = true
-opt.numberwidth = 4
 opt.relativenumber = true
-opt.ruler = false
-opt.showmode = false
-opt.showcmd = true
+opt.numberwidth = 4
+opt.termguicolors = true
+opt.signcolumn = "yes:1"
 opt.splitbelow = true
 opt.splitright = true
-opt.signcolumn = 'yes:1'
-opt.termguicolors = true
+opt.splitkeep = "screen"
+opt.showmode = false
+opt.showcmd = true
+opt.ruler = false
+opt.cmdheight = 1
+opt.laststatus = 3
+opt.fillchars:append({ eob = " " })
 
--- mouse support
-opt.mouse = 'a'
-opt.mousescroll = 'ver:3,hor:6'
+-- navigation
+opt.mouse = "a"
+opt.mousescroll = "ver:3,hor:6"
+opt.smoothscroll = true
 opt.scrolloff = 10
 opt.sidescrolloff = 10
+opt.cursorline = true
 
--- indenting
+-- indentation, wrapping
 opt.autoindent = true
 opt.expandtab = true
-opt.linebreak = true
 opt.shiftwidth = 2
-opt.smartindent = true
 opt.tabstop = 2
+opt.shiftround = true
+opt.smartindent = true
 opt.wrap = true
-
--- programming language support
--- g.python_recommended_style = 0
+opt.linebreak = true

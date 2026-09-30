@@ -1,22 +1,28 @@
 local M = {}
-local map = vim.keymap.set
 
-function M.setup(client, bufnr)
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-  map('n', 'q', vim.diagnostic.open_float, opts)
-  map('n', '[d', vim.diagnostic.goto_prev, opts)
-  map('n', ']d', vim.diagnostic.goto_next, opts)
-  map('n', '<C-d>', vim.diagnostic.setloclist, opts)
-  map('n', 'gD', vim.lsp.buf.declaration, opts)
-  map('n', 'gd', vim.lsp.buf.definition, opts)
-  map('n', 'K', vim.lsp.buf.hover, opts)
-  map('n', 'gi', vim.lsp.buf.implementation, opts)
-  map('n', 'gr', vim.lsp.buf.references, opts)
-  map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  map('n', '<leader>t', vim.lsp.buf.type_definition, opts)
-  map('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  map({ 'i', 'n' }, '<C-f>', vim.lsp.buf.format, opts)
+M.setup = function(bufnr)
+  local function map(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+  end
+  -- diagnostics
+  map("n", "q", vim.diagnostic.open_float, "Show line diagnostic")
+
+  -- lsp
+  map("n", "gd", vim.lsp.buf.definition, "Goto definition")
+  map("n", "gD", vim.lsp.buf.declaration, "Goto declaration")
+  map("n", "gi", vim.lsp.buf.implementation, "Goto implementation")
+  map("n", "K", vim.lsp.buf.hover, "Hover documentation")
+  map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature help")
+
+  -- actions
+  map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+  map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
+  map({ "n", "x" }, "<C-f>", function()
+    require("conform").format({
+      async = true,
+      lsp_format = "fallback",
+    })
+  end, "Format document")
 end
 
 return M

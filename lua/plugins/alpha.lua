@@ -1,96 +1,99 @@
 local M = {
-  'goolord/alpha-nvim',
-  event = 'VimEnter',
+  "goolord/alpha-nvim",
+  event = "VimEnter",
 }
 
-M.ascii = {
-  [[                                       ]],
-  [[    ▄   ▄███▄   ████▄     ▄   ▄█ █▀▄▀█ ]],
-  [[     █  █▀   ▀  █   █      █  ██ █ █ █ ]],
-  [[ ██   █ ██▄▄    █   █ █     █ ██ █ ▄ █ ]],
-  [[ █ █  █ █▄   ▄▀ ▀████  █    █ ▐█ █   █ ]],
-  [[ █  █ █ ▀███▀           █  █   ▐    █  ]],
-  [[ █   ██                  █▐        ▀   ]],
-  [[                         ▐             ]],
-  [[                                       ]],
+local ascii = {
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⣿⣿⡿⢻⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⡿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ]],
+  [[ ⠀⠀⢀⣤⣶⠿⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣿⣿⣷⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀ ]],
+  [[ ⠀⣠⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠻⣿⣿⣦⣄⠀⠀⠀⠀⠀⠀ ]],
+  [[ ⠀⠟⠀⠀⠀⢀⠀⣠⣀⣀⣀⣀⣀⠀⢀⣠⣇⣤⡄⢀⣤⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣧⣄⠀⠀⠀⠀ ]],
+  [[ ⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣯⣭⣙⣻⢿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣀⣀⣀⠀⠀⠀⠀⠀⠀⠉⠛⠛⠿⣦⠀⠀⠀ ]],
+  [[ ⠀⠀⢠⣿⣿⣿⢿⣿⣿⣿⣿⡇⠈⠙⢿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⢠⣦⣷⡾⢻⣿⣿⣿⣿⣿⣛⣲⣦⣄⡀⠀⠀⠀⠀⠀⠹⢷⣃⠀ ]],
+  [[ ⠀⢰⣿⣿⣿⣿⣬⣿⣿⣿⣿⣁⣠⡄⠀⠙⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣶⣿⠟⢩⣿⣿⣿⣿⣿⡿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠻⡅ ]],
+  [[ ⣴⣿⡿⠻⠿⢿⡿⣿⡿⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣷⣦⣬⣿⣿⣷⣿⠟⠀⠈⢹⣿⣿⣿⣧⠀⠀⠀⠀⠀ ]],
+  [[ ⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠞⠦⠀⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠉⠋⠛⠛⠻⠿⢿⣿⣿⣿⣶⣦⡄⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠙⠛⣷⣇⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠁ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡀ ]],
+  [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀ ]],
 }
 
-function M.opts()
-  local button = require('alpha.themes.dashboard').button
+M.opts = function()
+  local button = require("alpha.themes.dashboard").button
   return {
     header = {
-      type = 'text',
-      val = M.ascii,
+      type = "text",
+      val = ascii,
       opts = {
-        position = 'center',
-        hl = 'AlphaHeader',
+        position = "center",
+        hl = "AlphaHeader",
       },
     },
 
     buttons = {
-      type = 'group',
+      type = "group",
       val = {
-        button('e', '  New file', ':ene | startinsert<cr>'),
-        button('f', '󰍉  Find file', ':Telescope find_files<cr>'),
-        button('r', '󰈙  Recent files', ':Telescope oldfiles<cr>'),
-        button('g', '󰈭  Find word', ':Telescope live_grep<cr>'),
-        button('c', '  Configuration', ':e $MYVIMRC | :cd %:p:h<cr>'),
-        button('sl', '󰁯  Open last session'),
+        button("e", "󱪝  New file", "<cmd>ene <bar> startinsert<cr>"),
+        button("f", "  Find file", "<cmd>Telescope find_files<cr>"),
+        button("r", "󰈢  Recent files", "<cmd>Telescope oldfiles<cr>"),
+        button("g", "󰦨  Find word", "<cmd>Telescope live_grep<cr>"),
+        button("c", "  Configuration", "<cmd>e $MYVIMRC | cd %:p:h<cr>"),
+        button("s", "󰁯  Open last session", [[<cmd>lua require("persistence").load() <cr>]]),
       },
-      opts = {
-        spacing = 1,
-      },
+      opts = { spacing = 1 },
     },
 
     footer = {
-      type = 'text',
-      val = '',
+      type = "text",
+      val = "",
       opts = {
-        position = 'center',
-        hl = 'AlphaFooter',
+        position = "center",
+        hl = "AlphaFooter",
       },
     },
   }
 end
 
-function M.config(_, opts)
-  for _, value in ipairs(opts.buttons.val) do
-    value.opts.hl = 'AlphaButton'
-    value.opts.hl_shortcut = 'AlphaShortcut'
-  end
-
-  if vim.o.filetype == 'lazy' then
+M.config = function(_, opts)
+  if vim.o.filetype == "lazy" then
     vim.cmd.close()
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'AlphaReady',
+    vim.api.nvim_create_autocmd("User", {
+      once = true,
+      pattern = "AlphaReady",
       callback = function()
-        if not vim.g.bootstrap then
-          require('lazy').show()
-        end
+        require("lazy").show()
       end,
     })
   end
 
-  require('alpha').setup {
+  for _, button in ipairs(opts.buttons.val) do
+    button.opts.hl = "AlphaButton"
+    button.opts.hl_shortcut = "AlphaShortcut"
+  end
+
+  require("alpha").setup({
     layout = {
-      { type = 'padding', val = 6 },
+      { type = "padding", val = 8 },
       opts.header,
-      { type = 'padding', val = 2 },
+      { type = "padding", val = 4 },
       opts.buttons,
-      { type = 'padding', val = 1 },
+      { type = "padding", val = 1 },
       opts.footer,
     },
-    opts = {
-      margin = 5,
-    },
-  }
+    opts = { margin = 5 },
+  })
 
-  vim.api.nvim_create_autocmd('User', {
-    pattern = 'LazyVimStarted',
+  vim.api.nvim_create_autocmd("User", {
+    once = true,
+    pattern = "LazyVimStarted",
     callback = function()
-      local stats = require('lazy').stats()
-      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      opts.footer.val = 'Neovim loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+      local stats = require("lazy").stats()
+      opts.footer.val = string.format("neovim loaded %d plugins in %.2fms", stats.count, stats.startuptime)
       pcall(vim.cmd.AlphaRedraw)
     end,
   })

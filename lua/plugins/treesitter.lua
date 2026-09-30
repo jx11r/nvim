@@ -1,38 +1,38 @@
 local M = {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  event = 'BufReadPost',
-  dependencies = { 'p00f/nvim-ts-rainbow' },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-  end,
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
 }
 
-M.opts = {
-  auto_install = true,
-  highlight = { enable = true },
-  sync_install = false,
+-- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
+M.config = function()
+  require("nvim-treesitter").install({
+    "bash",
+    "c",
+    "diff",
+    "editorconfig",
+    "git_config",
+    "gitignore",
+    "html",
+    "json",
+    "lua",
+    "luadoc",
+    "markdown",
+    "markdown_inline",
+    "regex",
+    "ron",
+    "toml",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+  })
 
-  ensure_installed = {
-    'bash',
-    'diff',
-    'git_config',
-    'gitignore',
-    'json',
-    'lua',
-    'markdown',
-    'nix',
-    'regex',
-    'ron',
-    'toml',
-    'vim',
-    'yaml',
-  },
-
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-  },
-}
+  vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+      pcall(vim.treesitter.start)
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+  })
+end
 
 return M
