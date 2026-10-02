@@ -18,6 +18,7 @@ M.config = function()
     "luadoc",
     "markdown",
     "markdown_inline",
+    "python",
     "regex",
     "ron",
     "toml",

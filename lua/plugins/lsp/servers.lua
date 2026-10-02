@@ -2,6 +2,7 @@ local M = {}
 
 M.pkgs = {
   "lua-language-server",
+  "pyright",
 }
 
 M.cfg = {
@@ -10,6 +11,19 @@ M.cfg = {
       Lua = {
         workspace = { checkThirdParty = false },
         telemetry = { enable = false },
+      },
+    },
+  },
+
+  pyright = {
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
+      python = {
+        analysis = {
+          typeCheckingMode = "off",
+        },
       },
     },
   },
