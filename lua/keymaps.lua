@@ -27,6 +27,7 @@ map("n", "<C-down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 
 -- plugins
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open lazy.nvim" })
+map("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open mason.nvim" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Telescope: buffers" })
