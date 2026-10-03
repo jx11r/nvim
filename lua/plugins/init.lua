@@ -150,12 +150,6 @@ return {
   },
 
   {
-    "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = { current_line_blame = true },
-  },
-
-  {
     "brenoprata10/nvim-highlight-colors",
     event = { "BufReadPre", "BufNewFile" },
     opts = { enable_tailwind = true },
@@ -191,6 +185,12 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {},
   },
 }
