@@ -7,14 +7,17 @@ local M = {
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 M.config = function()
   require("nvim-treesitter").install({
+    "angular",
     "bash",
     "c",
+    "css",
     "diff",
     "editorconfig",
     "git_config",
     "gitignore",
     "go",
     "html",
+    "javascript",
     "json",
     "lua",
     "luadoc",
@@ -23,7 +26,9 @@ M.config = function()
     "python",
     "regex",
     "ron",
+    "scss",
     "toml",
+    "typescript",
     "vim",
     "vimdoc",
     "xml",

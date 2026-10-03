@@ -3,6 +3,7 @@ local M = {}
 
 M.pkgs = {
   { "golangci-lint", condition = utils.has_exec("go") },
+  "eslint_d",
   "mypy",
 }
 
@@ -23,8 +24,10 @@ M.spec = {
     local lint = require("lint")
 
     lint.linters_by_ft = {
+      javascript = { "eslint_d" },
       go = { "golangcilint" },
       python = { "mypy" },
+      typescript = { "eslint_d" },
     }
 
     for name, setup in pairs(cfg) do
