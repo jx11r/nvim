@@ -19,6 +19,7 @@ M.spec = {
       go = { "goimports", "gofumpt" },
       html = { "prettier" },
       javascript = { "prettier" },
+      json = { "prettier" },
       lua = { "stylua" },
       python = { "ruff_organize_imports", "ruff_format" },
       scss = { "prettier" },

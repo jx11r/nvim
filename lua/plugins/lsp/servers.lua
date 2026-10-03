@@ -10,6 +10,7 @@ M.pkgs = {
   "angular-language-server",
   "css-lsp",
   "html-lsp",
+  "json-lsp",
   "lua-language-server",
   "pyright",
   "vtsls",
