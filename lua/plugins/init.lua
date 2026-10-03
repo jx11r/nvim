@@ -21,6 +21,30 @@ return {
   },
 
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    keys = {
+      {
+        "<C-\\>",
+        function()
+          Snacks.terminal()
+        end,
+        desc = "Toggle terminal",
+      },
+    },
+    opts = {
+      bigfile = { enabled = true },
+      scroll = { enabled = true },
+      terminal = { enabled = true },
+      styles = {
+        terminal = {
+          wo = { winbar = "" },
+        },
+      },
+    },
+  },
+
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     keys = {
