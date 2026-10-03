@@ -10,13 +10,18 @@ M.config = function()
     "angular",
     "bash",
     "c",
+    "cmake",
+    "cpp",
     "css",
     "diff",
+    "dockerfile",
     "editorconfig",
     "git_config",
     "gitignore",
     "go",
+    "gomod",
     "html",
+    "java",
     "javascript",
     "json",
     "lua",
@@ -32,7 +37,9 @@ M.config = function()
     "vim",
     "vimdoc",
     "xml",
+    "xresources",
     "yaml",
+    "zsh",
   })
 
   vim.api.nvim_create_autocmd("FileType", {
