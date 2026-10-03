@@ -13,6 +13,7 @@ M.config = function()
     "editorconfig",
     "git_config",
     "gitignore",
+    "go",
     "html",
     "json",
     "lua",

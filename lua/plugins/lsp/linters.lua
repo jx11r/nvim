@@ -1,6 +1,8 @@
+local utils = require("utils")
 local M = {}
 
 M.pkgs = {
+  { "golangci-lint", condition = utils.has_exec("go") },
   "mypy",
 }
 
@@ -21,6 +23,7 @@ M.spec = {
     local lint = require("lint")
 
     lint.linters_by_ft = {
+      go = { "golangcilint" },
       python = { "mypy" },
     }
 
@@ -31,6 +34,7 @@ M.spec = {
     end
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
+      group = vim.api.nvim_create_augroup("linter", { clear = true }),
       callback = function()
         lint.try_lint()
       end,
