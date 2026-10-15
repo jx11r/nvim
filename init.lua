@@ -22,7 +22,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-  lockfile = fn.stdpath("config") .. "/lock.json",
+  lockfile = fn.stdpath("config") .. "/.lock.json",
   install = { colorscheme = { "tokyonight" } },
   ui = { border = "rounded" },
   performance = {
