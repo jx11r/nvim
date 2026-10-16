@@ -4,10 +4,13 @@ local M = {}
 M.pkgs = {
   { "gofumpt", condition = utils.has_exec("go") },
   { "goimports", condition = utils.has_exec("go") },
+  { "palantir-java-format", condition = utils.has_exec("java") },
   "prettier",
   "ruff",
   "stylua",
 }
+
+local cfg = {}
 
 M.spec = {
   "stevearc/conform.nvim",
@@ -18,6 +21,7 @@ M.spec = {
       css = { "prettier" },
       go = { "goimports", "gofumpt" },
       html = { "prettier" },
+      java = { "palantir-java-format" },
       javascript = { "prettier" },
       json = { "prettier" },
       lua = { "stylua" },
@@ -25,6 +29,8 @@ M.spec = {
       scss = { "prettier" },
       typescript = { "prettier" },
     },
+
+    formatters = cfg,
   },
 }
 

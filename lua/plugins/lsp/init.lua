@@ -26,10 +26,27 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
+      local group = vim.api.nvim_create_augroup("lsp_attach", { clear = true })
+
       vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("lsp_keymaps", { clear = true }),
+        group = group,
         callback = function(event)
-          require("plugins.lsp.keymaps").setup(event.buf)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          local bufnr = event.buf
+
+          if not client then
+            return
+          end
+
+          if client:supports_method("textDocument/inlayHint", bufnr) then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          end
+
+          if client:supports_method("textDocument/codeLens", bufnr) then
+            vim.lsp.codelens.enable(true, { bufnr = bufnr })
+          end
+
+          require("plugins.lsp.keymaps").setup(bufnr)
         end,
       })
 
@@ -41,7 +58,11 @@ return {
         vim.lsp.config(server, config)
       end
 
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup({
+        automatic_enable = {
+          exclude = { "jdtls" },
+        },
+      })
 
       vim.diagnostic.config({
         severity_sort = true,
@@ -63,6 +84,15 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "Wansmer/symbol-usage.nvim",
+    event = "LspAttach",
+    opts = {
+      vt_position = "end_of_line",
+      request_pending_text = false,
+    },
   },
 
   require("plugins.lsp.formatters").spec,

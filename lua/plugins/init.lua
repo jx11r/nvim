@@ -105,14 +105,20 @@ return {
   },
 
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {},
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {
+      focus = true,
+      win = {
+        position = "bottom",
+        size = 15,
+      },
+    },
   },
 
   {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
+    "folke/persistence.nvim",
+    event = "BufReadPre",
     opts = {},
   },
 

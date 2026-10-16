@@ -2,11 +2,8 @@ local utils = require("utils")
 local M = {}
 
 M.pkgs = {
-  {
-    "gopls",
-    auto_update = true,
-    condition = utils.has_exec("go"),
-  },
+  { "gopls", condition = utils.has_exec("go") },
+  { "jdtls", condition = utils.has_exec("java") },
   "angular-language-server",
   "css-lsp",
   "html-lsp",
@@ -22,6 +19,8 @@ M.cfg = {
       Lua = {
         workspace = { checkThirdParty = false },
         telemetry = { enable = false },
+        hint = { enable = false },
+        codeLens = { enable = false },
       },
     },
   },

@@ -26,14 +26,21 @@ map("n", "<C-up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 
 -- plugins
+map("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open lazy.nvim" })
 map("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open mason.nvim" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope: find files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Telescope: buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Telescope: help tags" })
-map("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
 map("n", "<leader>a", "<cmd>AerialToggle!<cr>", { desc = "View code symbols" })
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics" })
 map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer diagnostics" })
+map("n", "<leader>gr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "References" })
 map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle line blame" })
+
+-- sometimes they aren't loaded at startup
+map("n", "<leader>ri", function()
+  vim.lsp.inlay_hint.enable(false, { bufnr = 0 })
+  vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
+end, { desc = "Refresh inlay hints" })
