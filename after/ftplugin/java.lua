@@ -1,4 +1,5 @@
-if vim.fn.executable("java") ~= 1 then
+local ok, jdtls = pcall(require, "jdtls")
+if not ok then
   return
 end
 
@@ -71,4 +72,4 @@ local config = {
   },
 }
 
-require("jdtls").start_or_attach(config)
+jdtls.start_or_attach(config)
