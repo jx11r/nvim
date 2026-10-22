@@ -12,24 +12,6 @@ local M = {
   },
 }
 
-local function prioritize_spring(entry1, entry2)
-  if vim.bo.filetype ~= "java" then
-    return nil
-  end
-
-  local function is_spring(entry)
-    local detail = entry.completion_item.detail or ""
-    return detail:find("org%.springframework") ~= nil
-  end
-
-  local spring1 = is_spring(entry1)
-  local spring2 = is_spring(entry2)
-
-  if spring1 ~= spring2 then
-    return spring1
-  end
-end
-
 M.opts = function()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
@@ -76,7 +58,6 @@ M.opts = function()
 
     sorting = {
       comparators = {
-        prioritize_spring,
         cmp.config.compare.offset,
         cmp.config.compare.exact,
         cmp.config.compare.score,
