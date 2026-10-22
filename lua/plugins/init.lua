@@ -135,9 +135,15 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    config = function()
+    config = function(_, opts)
+      require("telescope").setup(opts)
       require("telescope").load_extension("fzf")
     end,
+    opts = {
+      defaults = {
+        path_display = { "smart" },
+      },
+    },
   },
 
   {
