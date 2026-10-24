@@ -47,8 +47,18 @@ local config = {
       maven = { downloadSources = true },
       signatureHelp = { enabled = true },
       inlayHints = {
-        parameterNames = {
-          enabled = "all",
+        parameterNames = { enabled = "all" },
+      },
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-21-openjdk",
+          },
+          {
+            name = "JavaSE-25",
+            path = "/usr/lib/jvm/java-25-openjdk",
+          },
         },
       },
     },
