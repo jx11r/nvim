@@ -3,24 +3,6 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-    config = function(_, opts)
-      require("tokyonight").setup(opts)
-      vim.cmd([[colorscheme tokyonight]])
-    end,
-    opts = {
-      style = "night",
-      on_highlights = function(hl, colors)
-        hl.AlphaHeader = { fg = colors.blue5 }
-        hl.AlphaButton = { fg = colors.green1 }
-        hl.AlphaShortcut = { fg = colors.orange }
-        hl.AlphaFooter = { fg = colors.blue7, italic = true }
-      end,
-    },
-  },
-
-  {
     "folke/snacks.nvim",
     priority = 1000,
     keys = {

@@ -1,4 +1,5 @@
-local colors = require("tokyonight.colors").setup()
+local colors = require("kanagawa.colors").setup({theme = "dragon"}).palette
+
 local M = {
   "nvim-lualine/lualine.nvim",
 }
@@ -57,7 +58,7 @@ section.left({
   function()
     return "▊"
   end,
-  color = { fg = colors.blue },
+  color = { fg = colors.dragonBlue },
   padding = { left = 0, right = 1 },
 })
 
@@ -67,26 +68,26 @@ section.left({
   end,
   color = function()
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [""] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [""] = colors.orange,
-      ic = colors.yellow,
-      R = colors.purple,
-      Rv = colors.purple,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ["r?"] = colors.cyan,
-      ["!"] = colors.red,
-      t = colors.red,
+      n = colors.waveRed,
+      i = colors.springGreen,
+      v = colors.springBlue,
+      [""] = colors.springBlue,
+      V = colors.springBlue,
+      c = colors.sakuraPink,
+      no = colors.waveRed,
+      s = colors.surimiOrange,
+      S = colors.surimiOrange,
+      [""] = colors.surimiOrange,
+      ic = colors.carpYellow,
+      R = colors.oniViolet,
+      Rv = colors.oniViolet,
+      cv = colors.waveRed,
+      ce = colors.waveRed,
+      r = colors.lightBlue,
+      rm = colors.lightBlue,
+      ["r?"] = colors.lightBlue,
+      ["!"] = colors.waveRed,
+      t = colors.waveRed,
     }
     return { fg = mode_color[vim.fn.mode()] }
   end,
@@ -95,24 +96,24 @@ section.left({
 
 section.left({
   "filesize",
-  color = { fg = colors.teal },
+  color = { fg = colors.waveAqua2 },
   cond = conditions.buffer_not_empty,
 })
 
 section.left({
   "filename",
-  color = { fg = colors.magenta, gui = "bold" },
+  color = { fg = colors.oniViolet, gui = "bold" },
   cond = conditions.buffer_not_empty,
 })
 
 section.left({
   "location",
-  color = { fg = colors.blue1 },
+  color = { fg = colors.springViolet2 },
 })
 
 section.left({
   "progress",
-  color = { fg = colors.blue1, gui = "bold" },
+  color = { fg = colors.springViolet2, gui = "bold" },
 })
 
 section.left({
@@ -123,9 +124,6 @@ section.left({
     warn = " ",
     info = " ",
     hint = " ",
-  },
-  diagnostics_color = {
-    error = { fg = colors.red },
   },
 })
 
@@ -148,7 +146,7 @@ section.left({
     return clients[1] and clients[1].name or ""
   end,
   icon = " ",
-  color = { fg = colors.green2, gui = "bold" },
+  color = { fg = colors.springViolet1, gui = "bold" },
   cond = function()
     return conditions.buffer_not_empty() and #vim.lsp.get_clients({ bufnr = 0 }) > 0
   end,
@@ -166,7 +164,7 @@ section.right({
 section.right({
   "o:encoding",
   fmt = string.upper,
-  color = { fg = colors.green, gui = "bold" },
+  color = { fg = colors.springGreen, gui = "bold" },
   cond = conditions.hide_in_width,
 })
 
@@ -174,13 +172,13 @@ section.right({
   "fileformat",
   fmt = string.upper,
   icons_enabled = false,
-  color = { fg = colors.green1, gui = "bold" },
+  color = { fg = colors.waveAqua1, gui = "bold" },
 })
 
 section.right({
   "branch",
   icon = "",
-  color = { fg = colors.purple, gui = "bold" },
+  color = { fg = colors.sakuraPink, gui = "bold" },
 })
 
 section.right({
@@ -191,9 +189,9 @@ section.right({
     removed = " ",
   },
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
+    added = { fg = colors.autumnGreen },
+    modified = { fg = colors.autumnYellow },
+    removed = { fg = colors.autumnRed },
   },
   source = function()
     local gitsigns = vim.b.gitsigns_status_dict
@@ -212,7 +210,7 @@ section.right({
   function()
     return "▊"
   end,
-  color = { fg = colors.blue },
+  color = { fg = colors.dragonBlue },
   padding = { left = 1 },
 })
 
