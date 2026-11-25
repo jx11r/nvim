@@ -5,6 +5,7 @@ M.pkgs = {
   { "gofumpt", condition = utils.has_exec("go") },
   { "goimports", condition = utils.has_exec("go") },
   { "palantir-java-format", condition = utils.has_exec("java") },
+  "clang-format",
   "prettier",
   "ruff",
   "stylua",
@@ -18,6 +19,8 @@ M.spec = {
   cmd = "ConformInfo",
   opts = {
     formatters_by_ft = {
+      c = { "clang-format" },
+      cpp = { "clang-format" },
       css = { "prettier" },
       go = { "goimports", "gofumpt" },
       html = { "prettier" },

@@ -4,13 +4,16 @@ local M = {}
 M.pkgs = {
   { "gopls", condition = utils.has_exec("go") },
   { "jdtls", condition = utils.has_exec("java") },
-  "angular-language-server",
-  "css-lsp",
-  "html-lsp",
+  "clangd",
   "json-lsp",
   "lua-language-server",
   "pyright",
   "vtsls",
+
+  -- web
+  "angular-language-server",
+  "css-lsp",
+  "html-lsp",
 }
 
 M.cfg = {
